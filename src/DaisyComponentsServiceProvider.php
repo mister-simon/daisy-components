@@ -2,9 +2,9 @@
 
 namespace MisterSimon\DaisyComponents;
 
+use MisterSimon\DaisyComponents\Commands\DaisyComponentsCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use MisterSimon\DaisyComponents\Commands\DaisyComponentsCommand;
 
 class DaisyComponentsServiceProvider extends PackageServiceProvider
 {
