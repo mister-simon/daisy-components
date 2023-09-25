@@ -73,10 +73,7 @@
         "laravel": {
             "providers": [
                 "MisterSimon\\DaisyComponents\\DaisyComponentsServiceProvider"
-            ],
-            "aliases": {
-                "DaisyComponents": "MisterSimon\\DaisyComponents\\Facades\\DaisyComponents"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",

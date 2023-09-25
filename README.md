@@ -9,18 +9,32 @@ This package provides a library of DaisyUI components from the DaisyUI docs, mad
 
 ## Installation
 
+This package requires [DaisyUI](https://daisyui.com/), which in turn requires [TailwindCSS](https://tailwindcss.com/).
+
 You can install the package via composer:
 
 ```bash
 composer require mister-simon/daisy-components
 ```
 
-You can publish and run the migrations with:
+- Follow setup [this Tailwind guide](https://tailwindcss.com/docs/guides/laravel).
 
-```bash
-php artisan vendor:publish --tag="daisy-components-migrations"
-php artisan migrate
+- Then follow [installation instructions for DaisyUI](https://daisyui.com/docs/install/).
+
+Allow tailwind to find package classes and add daisyui dependency:
+
+```js
+// tailwind.config.js
+module.exports = {
+    content: [
+        "./vendor/mister-simon/daisy-components/src/**/*.php",
+        "./vendor/mister-simon/daisy-components/resources/**/*.php"
+    ],
+    plugins: [require("daisyui")],
+}
 ```
+
+-------
 
 You can publish the config file with:
 
@@ -28,14 +42,7 @@ You can publish the config file with:
 php artisan vendor:publish --tag="daisy-components-config"
 ```
 
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
+You can publish the components with:
 
 ```bash
 php artisan vendor:publish --tag="daisy-components-views"
@@ -43,10 +50,11 @@ php artisan vendor:publish --tag="daisy-components-views"
 
 ## Usage
 
-```php
-$daisyComponents = new MisterSimon\DaisyComponents();
-echo $daisyComponents->echoPhrase('Hello, MisterSimon!');
+```blade
+<x-dc::alert>This is a DaisyUI alert. Fancy.</x-dc::alert>
 ```
+
+If you would prefer a different namespace, that can be changed via the config.
 
 ## Testing
 

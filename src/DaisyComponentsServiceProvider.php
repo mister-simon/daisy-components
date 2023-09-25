@@ -2,7 +2,9 @@
 
 namespace MisterSimon\DaisyComponents;
 
-use MisterSimon\DaisyComponents\Commands\DaisyComponentsCommand;
+use Illuminate\Support\Facades\Blade;
+use MisterSimon\DaisyComponents\Components\Alert;
+use MisterSimon\DaisyComponents\Components\Button;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -18,8 +20,29 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
         $package
             ->name('daisy-components')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_daisy-components_table')
-            ->hasCommand(DaisyComponentsCommand::class);
+            ->hasViews();
+    }
+
+    public function packageBooted()
+    {
+        $prefix = config('daisy-components.prefix');
+
+        Blade::components([
+            // Actions
+            Button::class,
+
+            // Data display
+            Alert::class,
+
+            // Data input
+
+            // Layout
+
+            // Navigation
+
+            // Mockup
+
+        ], $prefix);
+
     }
 }
