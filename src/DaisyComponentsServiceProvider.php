@@ -3,6 +3,7 @@
 namespace MisterSimon\DaisyComponents;
 
 use Illuminate\Support\Facades\Blade;
+use MisterSimon\DaisyComponents\Components\Accordion;
 use MisterSimon\DaisyComponents\Components\Alert;
 use MisterSimon\DaisyComponents\Components\Button;
 use Spatie\LaravelPackageTools\Package;
@@ -32,6 +33,7 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             Button::class,
 
             // Data display
+            Accordion::class,
             Alert::class,
 
             // Data input
