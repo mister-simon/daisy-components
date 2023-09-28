@@ -14,7 +14,7 @@ class Accordion extends Component
         public $open = false,
         public $forceOpen = false,
         public $forceClose = false,
-        public $plus = true,
+        public $plus = null,
         public $arrow = null,
         public $group = 'accordion',
     ) {
