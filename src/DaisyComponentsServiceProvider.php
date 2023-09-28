@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Blade;
 use MisterSimon\DaisyComponents\Components\Accordion;
 use MisterSimon\DaisyComponents\Components\Alert;
 use MisterSimon\DaisyComponents\Components\Button;
+use MisterSimon\DaisyComponents\Components\Dropdown;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -31,6 +32,7 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
         Blade::components([
             // Actions
             Button::class,
+            Dropdown::class,
 
             // Data display
             Accordion::class,
