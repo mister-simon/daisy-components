@@ -11,25 +11,43 @@ class Dropdown extends Component
     public $defaultAttributes;
 
     public function __construct(
-        public $openOnHover = false,
-        public $closeOnBlur = true,
+        public $hover = false,
+        public $end = false,
+        public $top = false,
+        public $bottom = false,
+        public $left = false,
+        public $right = false,
+        public $forceOpen = false,
     ) {
         $classes = ['dropdown'];
 
-        $this->defaultAttributes = ['class' => implode(' ', $classes)];
-
-        // Open on hover
-        if ($openOnHover) {
-            $this->defaultAttributes['x-init'] = '';
-            $this->defaultAttributes['x-on:mouseover'] = '$el.open = true';
-            $this->defaultAttributes['x-on:mouseout'] = '$el.open = false';
+        if ($hover) {
+            $classes[] = 'dropdown-hover';
         }
 
-        // Close on blur
-        if ($closeOnBlur) {
-            $this->defaultAttributes['x-init'] = '';
-            $this->defaultAttributes['x-on:click.outside'] = '$el.open = false';
+        if ($top) {
+            $classes[] = 'dropdown-top';
+        } elseif ($bottom) {
+            $classes[] = 'dropdown-bottom';
         }
+
+        if ($left) {
+            $classes[] = 'dropdown-left';
+        } elseif ($right) {
+            $classes[] = 'dropdown-right';
+        }
+
+        if ($end) {
+            $classes[] = 'dropdown-end';
+        }
+
+        if ($forceOpen) {
+            $classes[] = 'dropdown-open';
+        }
+
+        $this->defaultAttributes = [
+            'class' => implode(' ', $classes),
+        ];
     }
 
     /**

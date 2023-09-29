@@ -1,4 +1,4 @@
-<details {{ $attributes->merge($defaultAttributes) }}>
-    <summary {{ $summary->attributes->class('btn') }}>{{ $summary }}</summary>
-    <div {{ $content->attributes->class(['dropdown-content']) }}>{{ $content }}</div>
-</details>
+<div {{ $attributes->merge($defaultAttributes) }}>
+    <label {{ $summary->attributes->class('btn')->merge(['tabindex' => '0']) }}>{{ $summary }}</label>
+    <div {{ $content->attributes->class(['dropdown-content z-[1]']) }}>{{ $content }}</div>
+</div>
