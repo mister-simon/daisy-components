@@ -7,6 +7,7 @@ use MisterSimon\DaisyComponents\Components\Accordion;
 use MisterSimon\DaisyComponents\Components\Alert;
 use MisterSimon\DaisyComponents\Components\Button;
 use MisterSimon\DaisyComponents\Components\Dropdown;
+use MisterSimon\DaisyComponents\Components\Modal;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -33,6 +34,7 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             // Actions
             Button::class,
             Dropdown::class,
+            Modal::class,
 
             // Data display
             Accordion::class,
