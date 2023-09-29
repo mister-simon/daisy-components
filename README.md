@@ -35,10 +35,22 @@ module.exports = {
 }
 ```
 
+## Usage
+
+For comprehensive examples of components' usage: [Daisy Components Example Project](https://github.com/mister-simon/daisy-components-project).
+
+```blade
+<x-dc-alert success>This is a DaisyUI alert. Fancy.</x-dc-alert>
+```
+
+If you would prefer a different namespace, that can be changed via the config.
+
 ### Preparing for Production - Discarding Unused Components
 
+There are some considerations to make when taking these components to production:
+
 - Your Tailwind build removes styles that aren't used in your app.
-- By adding the above content paths your build will include **all** components and related classes that this package aims to support.
+- By adding the [content paths defined above](#installation), your build will include **all** components and related classes that this package aims to support.
 
 For production use, consider the following steps:
 
@@ -53,7 +65,7 @@ For production use, consider the following steps:
 
 As you continue to develop, be sure to keep an eye out for updates to this package to merge back into your App components. You also needn't worry about dealing with the above issue until
 
-#### Another Approach to Discarding Components
+### Another Approach to Discarding Components
 
 You might prefer to approach the above issue slightly differently by making use of tailwind safelists:
 
@@ -81,16 +93,6 @@ You can publish the components with:
 ```bash
 php artisan vendor:publish --tag="daisy-components-views"
 ```
-
-## Usage
-
-```blade
-<x-dc-alert>This is a DaisyUI alert. Fancy.</x-dc-alert>
-```
-
-If you would prefer a different namespace, that can be changed via the config.
-
-For comprehensive examples of components' usage: [Daisy Components Example Project](https://github.com/mister-simon/daisy-components-project).
 
 
 ## Testing
