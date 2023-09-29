@@ -90,6 +90,9 @@ php artisan vendor:publish --tag="daisy-components-views"
 
 If you would prefer a different namespace, that can be changed via the config.
 
+For comprehensive examples of components' usage: [Daisy Components Example Project](https://github.com/mister-simon/daisy-components-project).
+
+
 ## Testing
 
 ```bash
