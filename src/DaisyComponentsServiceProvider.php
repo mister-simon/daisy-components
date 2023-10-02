@@ -30,6 +30,11 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
     {
         $prefix = config('daisy-components.prefix');
 
+        Blade::componentNamespace(
+            'MisterSimon\DaisyComponents\Components',
+            'daisy-components'
+        );
+
         Blade::components([
             // Actions
             Button::class,

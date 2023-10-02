@@ -24,4 +24,8 @@
     @if ($action ?? null)
         {{ $action }}
     @endif
+
+    @if ($dismissable && !($action ?? null))
+        <x-daisy-components::button circle ghost sm x-on:click="dismissed = true">✕</x-daisy-components::button>
+    @endif
 </div>

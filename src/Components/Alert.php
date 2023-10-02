@@ -14,7 +14,10 @@ class Alert extends Component
         public $info = null,
         public $success = null,
         public $warning = null,
-        public $error = null
+        public $error = null,
+        public $dismissable = null,
+        public $autoDismiss = null,
+        public $dismissIntersect = false,
     ) {
         $classes = ['alert'];
 
@@ -29,6 +32,37 @@ class Alert extends Component
         }
 
         $this->defaultAttributes = ['class' => implode(' ', $classes)];
+
+        // Any dismissal option will require alpine additions
+        $dismissable = $dismissable || $autoDismiss || $dismissIntersect;
+
+        // Manage unset / non-numeric auto-dismiss timer
+        if (($autoDismiss || $dismissIntersect) && ! is_numeric($autoDismiss)) {
+            $autoDismiss = 3000;
+        }
+
+        // Base alpine additions
+        if ($dismissable) {
+            $this->defaultAttributes['x-data'] = <<<"JS"
+                {
+                    dismissed: false,
+                    timeout() {
+                        setTimeout(() => this.dismissed = true, {$autoDismiss})
+                    }
+                }
+            JS;
+
+            $this->defaultAttributes['x-show'] = '!dismissed';
+        }
+
+        // Add autodismiss either on timeout or intersection observer
+        if ($autoDismiss) {
+            if ($dismissIntersect) {
+                $this->defaultAttributes['x-intersect.full.once'] = 'timeout';
+            } else {
+                $this->defaultAttributes['x-init'] = 'timeout()';
+            }
+        }
     }
 
     /**
