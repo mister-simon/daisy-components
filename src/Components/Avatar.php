@@ -13,7 +13,7 @@ class Avatar extends Component
     public function __construct(
         public $online = null,
     ) {
-        $classes = ['avatar'];
+        $classes = ['avatar placeholder'];
 
         if ($online !== null) {
             $classes[] = $online
