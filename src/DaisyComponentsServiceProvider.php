@@ -5,6 +5,7 @@ namespace MisterSimon\DaisyComponents;
 use Illuminate\Support\Facades\Blade;
 use MisterSimon\DaisyComponents\Components\Accordion;
 use MisterSimon\DaisyComponents\Components\Alert;
+use MisterSimon\DaisyComponents\Components\Avatar;
 use MisterSimon\DaisyComponents\Components\Button;
 use MisterSimon\DaisyComponents\Components\Dropdown;
 use MisterSimon\DaisyComponents\Components\Modal;
@@ -44,6 +45,7 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             // Data display
             Accordion::class,
             Alert::class,
+            Avatar::class,
 
             // Data input
 
