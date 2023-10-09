@@ -9,6 +9,7 @@ use MisterSimon\DaisyComponents\Components\Avatar;
 use MisterSimon\DaisyComponents\Components\Button;
 use MisterSimon\DaisyComponents\Components\Dropdown;
 use MisterSimon\DaisyComponents\Components\Modal;
+use MisterSimon\DaisyComponents\Components\Swap;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -41,6 +42,7 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             Button::class,
             Dropdown::class,
             Modal::class,
+            Swap::class,
 
             // Data display
             Accordion::class,
