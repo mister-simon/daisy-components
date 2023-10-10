@@ -45,6 +45,37 @@ For comprehensive examples of components' usage: [Daisy Components Example Proje
 
 If you would prefer a different namespace, that can be changed via the config.
 
+### Overloading / proxied defaults
+
+You may wish to extend this package's component classes, calling the parent constructors with different default args.
+
+For example, the following will result in a compact-padded card with a large shadow by default when using `<x-app-card>`:
+
+```php
+use MisterSimon\DaisyComponents\Components\Card;
+
+class AppCard extends Card
+{
+    public function __construct(
+        public $compact = true,
+        public $bordered = true,
+        public $imgEnd = null,
+        public $imgFull = null,
+        public $imgSide = null
+    ) {
+        parent::__construct(
+            $compact,
+            $bordered,
+            $imgEnd,
+            $imgFull,
+            $imgSide
+        );
+
+        $this->defaultAttributes['class'] .= ' shadow-xl';
+    }
+}
+```
+
 ### Preparing for Production - Discarding Unused Components
 
 There are some considerations to make when taking these components to production:
