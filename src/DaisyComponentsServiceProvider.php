@@ -8,6 +8,7 @@ use MisterSimon\DaisyComponents\Components\Alert;
 use MisterSimon\DaisyComponents\Components\Avatar;
 use MisterSimon\DaisyComponents\Components\Badge;
 use MisterSimon\DaisyComponents\Components\Button;
+use MisterSimon\DaisyComponents\Components\Card;
 use MisterSimon\DaisyComponents\Components\Dropdown;
 use MisterSimon\DaisyComponents\Components\Modal;
 use MisterSimon\DaisyComponents\Components\Swap;
@@ -50,6 +51,7 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             Alert::class,
             Avatar::class,
             Badge::class,
+            Card::class,
 
             // Data input
 
