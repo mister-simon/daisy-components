@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Blade;
 use MisterSimon\DaisyComponents\Components\Accordion;
 use MisterSimon\DaisyComponents\Components\Alert;
 use MisterSimon\DaisyComponents\Components\Avatar;
+use MisterSimon\DaisyComponents\Components\Badge;
 use MisterSimon\DaisyComponents\Components\Button;
 use MisterSimon\DaisyComponents\Components\Dropdown;
 use MisterSimon\DaisyComponents\Components\Modal;
@@ -48,6 +49,7 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             Accordion::class,
             Alert::class,
             Avatar::class,
+            Badge::class,
 
             // Data input
 
