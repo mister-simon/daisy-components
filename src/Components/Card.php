@@ -16,6 +16,8 @@ class Card extends Component
         public $imgFull = null,
         public $imgSide = null,
         public $bodyClasses = '',
+        public $imgClasses = '',
+        public $imgEndClasses = '',
     ) {
         $classes = ['card'];
 

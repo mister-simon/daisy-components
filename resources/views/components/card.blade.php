@@ -4,7 +4,7 @@
 @php($actions ??= null)
 <div {{ $attributes->merge($defaultAttributes) }}>
     @if ($img && $img?->attributes)
-        <figure><img {{ $img->attributes->class('') }} /></figure>
+        <figure @class([$imgClasses])><img {{ $img->attributes->class('') }} /></figure>
     @endif
     <div @class(['card-body', $bodyClasses])>
         @if ($title)
@@ -18,6 +18,6 @@
         @endif
     </div>
     @if ($imgEnd && $imgEnd?->attributes)
-        <figure><img {{ $imgEnd->attributes->class('') }} /></figure>
+        <figure @class([$imgEndClasses])><img {{ $imgEnd->attributes->class('') }} /></figure>
     @endif
 </div>
