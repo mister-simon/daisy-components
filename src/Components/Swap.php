@@ -11,7 +11,6 @@ class Swap extends Component
     public $defaultAttributes;
 
     public function __construct(
-        public $online = null,
         public $checked = null,
         public $flip = null,
         public $rotate = null
