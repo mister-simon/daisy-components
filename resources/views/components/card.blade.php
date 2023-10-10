@@ -3,10 +3,10 @@
 @php($title ??= null)
 @php($actions ??= null)
 <div {{ $attributes->merge($defaultAttributes) }}>
-    @if ($img && !$imgEnd)
+    @if ($img && $img?->attributes)
         <figure><img {{ $img->attributes->class('') }} /></figure>
     @endif
-    <div class="card-body">
+    <div @class(['card-body', $bodyClasses])>
         @if ($title)
             <{{ $title->attributes->get('tag', 'h2') }} {{ $title->attributes->class('card-title') }}>{{ $title }}</{{ $title->attributes->get('tag', 'h2') }}>
         @endif
@@ -17,7 +17,7 @@
             </div>
         @endif
     </div>
-    @if ($img && $imgEnd)
-        <figure><img {{ $img->attributes->class('') }} /></figure>
+    @if ($imgEnd && $imgEnd?->attributes)
+        <figure><img {{ $imgEnd->attributes->class('') }} /></figure>
     @endif
 </div>

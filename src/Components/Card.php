@@ -13,9 +13,9 @@ class Card extends Component
     public function __construct(
         public $compact = null,
         public $bordered = null,
-        public $imgEnd = null,
         public $imgFull = null,
         public $imgSide = null,
+        public $bodyClasses = '',
     ) {
         $classes = ['card'];
 
