@@ -9,6 +9,8 @@ use MisterSimon\DaisyComponents\Components\Avatar;
 use MisterSimon\DaisyComponents\Components\Badge;
 use MisterSimon\DaisyComponents\Components\Button;
 use MisterSimon\DaisyComponents\Components\Card;
+use MisterSimon\DaisyComponents\Components\Carousel;
+use MisterSimon\DaisyComponents\Components\CarouselItem;
 use MisterSimon\DaisyComponents\Components\Dropdown;
 use MisterSimon\DaisyComponents\Components\Modal;
 use MisterSimon\DaisyComponents\Components\Swap;
@@ -52,6 +54,8 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             Avatar::class,
             Badge::class,
             Card::class,
+            Carousel::class,
+            CarouselItem::class,
 
             // Data input
 
