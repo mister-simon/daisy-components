@@ -47,33 +47,28 @@ If you would prefer a different namespace, that can be changed via the config.
 
 ### Overloading / proxied defaults
 
-You may wish to extend this package's component classes, calling the parent constructors with different default args.
+You may wish to extend this package's component classes, overriding props where necessary.
+
+This is the approach taken to alias `<x-dc-button tag="a">` to `<x-dc-a>`. Check `src/Components/A.php`.
 
 For example, the following will result in a compact-padded card with a large shadow by default when using `<x-app-card>`:
 
 ```php
+// ... Other imports
 use MisterSimon\DaisyComponents\Components\Card;
 
 class AppCard extends Card
 {
-    public function __construct(
-        public $compact = true,
-        public $bordered = true,
-        public $imgEnd = null,
-        public $imgFull = null,
-        public $imgSide = null
-    ) {
-        parent::__construct(
-            $compact,
-            $bordered,
-            $imgEnd,
-            $imgFull,
-            $imgSide
-        );
-
+    public function render(): View|Closure|string
+    {
+        $this->compact ??= true;
+        $this->bordered ??= true;
         $this->defaultAttributes['class'] .= ' shadow-xl';
+
+        return parent::render();
     }
 }
+
 ```
 
 ### Preparing for Production - Discarding Unused Components

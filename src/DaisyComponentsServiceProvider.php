@@ -3,6 +3,7 @@
 namespace MisterSimon\DaisyComponents;
 
 use Illuminate\Support\Facades\Blade;
+use MisterSimon\DaisyComponents\Components\A;
 use MisterSimon\DaisyComponents\Components\Accordion;
 use MisterSimon\DaisyComponents\Components\Alert;
 use MisterSimon\DaisyComponents\Components\Avatar;
@@ -43,6 +44,7 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
 
         Blade::components([
             // Actions
+            A::class,
             Button::class,
             Dropdown::class,
             Modal::class,

@@ -12,7 +12,7 @@ class Button extends Component
 
     public function __construct(
         // HTML tag to use
-        public $tag = 'button',
+        public $tag = null,
 
         // Style
         public $neutral = null,
@@ -132,6 +132,8 @@ class Button extends Component
      */
     public function render(): View|Closure|string
     {
+        $this->tag ??= 'button';
+
         return view('daisy-components::components.button');
     }
 }
