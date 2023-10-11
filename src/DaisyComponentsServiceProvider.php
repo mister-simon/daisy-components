@@ -12,6 +12,7 @@ use MisterSimon\DaisyComponents\Components\Button;
 use MisterSimon\DaisyComponents\Components\Card;
 use MisterSimon\DaisyComponents\Components\Carousel;
 use MisterSimon\DaisyComponents\Components\CarouselItem;
+use MisterSimon\DaisyComponents\Components\Chat;
 use MisterSimon\DaisyComponents\Components\Dropdown;
 use MisterSimon\DaisyComponents\Components\Modal;
 use MisterSimon\DaisyComponents\Components\Swap;
@@ -58,6 +59,7 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             Card::class,
             Carousel::class,
             CarouselItem::class,
+            Chat::class,
 
             // Data input
 
