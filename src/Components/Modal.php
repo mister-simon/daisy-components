@@ -17,8 +17,11 @@ class Modal extends Component
         public $top = false,
         public $bottom = false,
     ) {
-        $this->id ??= Str::uuid()->toString();
-        $this->id = str($this->id)->camel()->start('modal');
+        $this->id ??= Str::uuid();
+        $this->id = str($this->id)
+            ->camel()
+            ->start('modal')
+            ->toString();
 
         $classes = ['modal'];
 
