@@ -16,7 +16,7 @@ class Accordion extends Component
         public $forceClose = false,
         public $plus = null,
         public $arrow = null,
-        public $group = 'accordion',
+        public $group = null,
     ) {
         $classes = ['collapse'];
 
@@ -40,6 +40,8 @@ class Accordion extends Component
      */
     public function render(): View|Closure|string
     {
+        $this->group ??= 'accordion';
+
         return view('daisy-components::components.accordion');
     }
 }
