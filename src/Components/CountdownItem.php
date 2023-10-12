@@ -12,7 +12,6 @@ class CountdownItem extends Component
 
     public function __construct(
         public $count = 0,
-        public $from = null,
     ) {
         $this->defaultAttributes = [
             // Render the count by default
@@ -32,9 +31,6 @@ class CountdownItem extends Component
      */
     public function render(): View|Closure|string
     {
-        return view(
-            'daisy-components::components.countdown-item',
-            ['supportNoJs' => $this->from !== $this->count]
-        );
+        return view('daisy-components::components.countdown-item');
     }
 }
