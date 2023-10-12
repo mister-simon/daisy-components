@@ -14,6 +14,8 @@ use MisterSimon\DaisyComponents\Components\Carousel;
 use MisterSimon\DaisyComponents\Components\CarouselItem;
 use MisterSimon\DaisyComponents\Components\Chat;
 use MisterSimon\DaisyComponents\Components\Collapse;
+use MisterSimon\DaisyComponents\Components\Countdown;
+use MisterSimon\DaisyComponents\Components\CountdownItem;
 use MisterSimon\DaisyComponents\Components\Dropdown;
 use MisterSimon\DaisyComponents\Components\Modal;
 use MisterSimon\DaisyComponents\Components\Swap;
@@ -62,6 +64,8 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             CarouselItem::class,
             Chat::class,
             Collapse::class,
+            Countdown::class,
+            CountdownItem::class,
 
             // Data input
 
