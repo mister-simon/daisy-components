@@ -21,6 +21,7 @@ use MisterSimon\DaisyComponents\Components\Kbd;
 use MisterSimon\DaisyComponents\Components\Loading;
 use MisterSimon\DaisyComponents\Components\Modal;
 use MisterSimon\DaisyComponents\Components\Progress;
+use MisterSimon\DaisyComponents\Components\RadialProgress;
 use MisterSimon\DaisyComponents\Components\Swap;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -72,6 +73,7 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             Kbd::class,
             Loading::class,
             Progress::class,
+            RadialProgress::class,
 
             // Data input
 
