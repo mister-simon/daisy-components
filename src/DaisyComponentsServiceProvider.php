@@ -18,6 +18,7 @@ use MisterSimon\DaisyComponents\Components\Countdown;
 use MisterSimon\DaisyComponents\Components\CountdownItem;
 use MisterSimon\DaisyComponents\Components\Dropdown;
 use MisterSimon\DaisyComponents\Components\Kbd;
+use MisterSimon\DaisyComponents\Components\Loading;
 use MisterSimon\DaisyComponents\Components\Modal;
 use MisterSimon\DaisyComponents\Components\Swap;
 use Spatie\LaravelPackageTools\Package;
@@ -68,6 +69,7 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             Countdown::class,
             CountdownItem::class,
             Kbd::class,
+            Loading::class,
 
             // Data input
 
