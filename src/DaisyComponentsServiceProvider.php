@@ -22,6 +22,8 @@ use MisterSimon\DaisyComponents\Components\Loading;
 use MisterSimon\DaisyComponents\Components\Modal;
 use MisterSimon\DaisyComponents\Components\Progress;
 use MisterSimon\DaisyComponents\Components\RadialProgress;
+use MisterSimon\DaisyComponents\Components\Stat;
+use MisterSimon\DaisyComponents\Components\Stats;
 use MisterSimon\DaisyComponents\Components\Swap;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -74,6 +76,8 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             Loading::class,
             Progress::class,
             RadialProgress::class,
+            Stats::class,
+            Stat::class,
 
             // Data input
 
