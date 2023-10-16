@@ -25,6 +25,7 @@ use MisterSimon\DaisyComponents\Components\RadialProgress;
 use MisterSimon\DaisyComponents\Components\Stat;
 use MisterSimon\DaisyComponents\Components\Stats;
 use MisterSimon\DaisyComponents\Components\Swap;
+use MisterSimon\DaisyComponents\Components\Table;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -78,6 +79,7 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             RadialProgress::class,
             Stats::class,
             Stat::class,
+            Table::class,
 
             // Data input
 
