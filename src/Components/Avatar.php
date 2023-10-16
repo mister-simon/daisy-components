@@ -17,8 +17,8 @@ class Avatar extends Component
 
         if ($online !== null) {
             $classes[] = $online
-                ? 'avatar-online'
-                : 'avatar-offline';
+                ? 'online'
+                : 'offline';
         }
 
         $this->defaultAttributes = ['class' => implode(' ', $classes)];
