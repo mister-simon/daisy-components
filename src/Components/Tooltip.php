@@ -62,6 +62,10 @@ class Tooltip extends Component
             $classes[] = 'tooltip-error';
         }
 
+        if ($forceOpen) {
+            $classes[] = 'tooltip-open';
+        }
+
         $this->defaultAttributes = [
             'data-tip' => $this->tip,
             'class' => implode(' ', $classes),
