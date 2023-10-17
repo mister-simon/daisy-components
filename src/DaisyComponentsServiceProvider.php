@@ -26,6 +26,8 @@ use MisterSimon\DaisyComponents\Components\Modal;
 use MisterSimon\DaisyComponents\Components\Progress;
 use MisterSimon\DaisyComponents\Components\RadialProgress;
 use MisterSimon\DaisyComponents\Components\Radio;
+use MisterSimon\DaisyComponents\Components\Range;
+use MisterSimon\DaisyComponents\Components\RangeMeasure;
 use MisterSimon\DaisyComponents\Components\Stat;
 use MisterSimon\DaisyComponents\Components\Stats;
 use MisterSimon\DaisyComponents\Components\Swap;
@@ -92,6 +94,8 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             Label::class,
             Checkbox::class,
             Radio::class,
+            Range::class,
+            RangeMeasure::class,
 
             // Layout
 
