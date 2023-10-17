@@ -43,11 +43,12 @@ class Alert extends Component
 
         // Base alpine additions
         if ($dismissable) {
+            $autoDismissDefault = $autoDismiss ?? 0;
             $this->defaultAttributes['x-data'] = <<<"JS"
                 {
                     dismissed: false,
                     timeout() {
-                        setTimeout(() => this.dismissed = true, {$autoDismiss})
+                        setTimeout(() => this.dismissed = true, {$autoDismissDefault})
                     }
                 }
             JS;
