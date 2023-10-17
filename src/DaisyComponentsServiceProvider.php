@@ -19,6 +19,7 @@ use MisterSimon\DaisyComponents\Components\Countdown;
 use MisterSimon\DaisyComponents\Components\CountdownItem;
 use MisterSimon\DaisyComponents\Components\Dropdown;
 use MisterSimon\DaisyComponents\Components\FormControl;
+use MisterSimon\DaisyComponents\Components\Input;
 use MisterSimon\DaisyComponents\Components\Kbd;
 use MisterSimon\DaisyComponents\Components\Label;
 use MisterSimon\DaisyComponents\Components\Loading;
@@ -32,6 +33,7 @@ use MisterSimon\DaisyComponents\Components\Stat;
 use MisterSimon\DaisyComponents\Components\Stats;
 use MisterSimon\DaisyComponents\Components\Swap;
 use MisterSimon\DaisyComponents\Components\Table;
+use MisterSimon\DaisyComponents\Components\Textarea;
 use MisterSimon\DaisyComponents\Components\Tooltip;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -96,6 +98,8 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             Radio::class,
             Range::class,
             RangeMeasure::class,
+            Input::class,
+            Textarea::class,
 
             // Layout
 
