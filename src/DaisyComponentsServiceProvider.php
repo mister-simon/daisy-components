@@ -34,6 +34,7 @@ use MisterSimon\DaisyComponents\Components\Stats;
 use MisterSimon\DaisyComponents\Components\Swap;
 use MisterSimon\DaisyComponents\Components\Table;
 use MisterSimon\DaisyComponents\Components\Textarea;
+use MisterSimon\DaisyComponents\Components\Toggle;
 use MisterSimon\DaisyComponents\Components\Tooltip;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -100,6 +101,7 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             RangeMeasure::class,
             Input::class,
             Textarea::class,
+            Toggle::class,
 
             // Layout
 
