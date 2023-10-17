@@ -13,11 +13,14 @@ use MisterSimon\DaisyComponents\Components\Card;
 use MisterSimon\DaisyComponents\Components\Carousel;
 use MisterSimon\DaisyComponents\Components\CarouselItem;
 use MisterSimon\DaisyComponents\Components\Chat;
+use MisterSimon\DaisyComponents\Components\Checkbox;
 use MisterSimon\DaisyComponents\Components\Collapse;
 use MisterSimon\DaisyComponents\Components\Countdown;
 use MisterSimon\DaisyComponents\Components\CountdownItem;
 use MisterSimon\DaisyComponents\Components\Dropdown;
+use MisterSimon\DaisyComponents\Components\FormControl;
 use MisterSimon\DaisyComponents\Components\Kbd;
+use MisterSimon\DaisyComponents\Components\Label;
 use MisterSimon\DaisyComponents\Components\Loading;
 use MisterSimon\DaisyComponents\Components\Modal;
 use MisterSimon\DaisyComponents\Components\Progress;
@@ -84,6 +87,9 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             Tooltip::class,
 
             // Data input
+            FormControl::class,
+            Label::class,
+            Checkbox::class,
 
             // Layout
 
