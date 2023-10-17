@@ -1,5 +1,5 @@
-<div {{ $attributes->merge(['aria-hidden' => 'true'])->class('flex w-full justify-between px-2 select-none') }}>
+<div {{ $attributes->merge(['aria-hidden' => 'true'])->class('flex w-full justify-between items-center px-3 select-none pointer-events-none [&>span]:w-0 [&>span]:inline-flex [&>span]:justify-center [&>span]:overflow-visible') }}>
     @for ($i = 0; $i < $steps + 1; $i++)
-        <span>|</span>
+        <span>{{ $slot->isNotEmpty() ? $slot : '|' }}</span>
     @endfor
 </div>
