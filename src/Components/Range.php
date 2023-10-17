@@ -66,6 +66,27 @@ class Range extends Component
     }
 
     /**
+     * The x padding for each size should be exactly 1/2 the range input's height.
+     */
+    public function defaultMeasureClass()
+    {
+        $md = (
+            $this->lg === null
+            && $this->md === null
+            && $this->sm === null
+            && $this->xs === null
+        );
+
+        return match (true) {
+            $this->lg => 'px-4',
+            $this->sm => 'px-[0.625rem]',
+            $this->xs => 'px-2',
+            $md => 'px-3',
+            default => 'px-3',
+        };
+    }
+
+    /**
      * Get the view / contents that represent the component.
      */
     public function render(): View|Closure|string
