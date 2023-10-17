@@ -1,1 +1,1 @@
-<input {{ $attributes->merge($defaultAttributes) }}>{{ $slot }}</input>
+<input {{ $attributes->merge($defaultAttributes) }} />

@@ -1,4 +1,4 @@
-<input {{ $attributes->merge($defaultAttributes) }}>{{ $slot }}</input>
+<input {{ $attributes->merge($defaultAttributes) }} />
 @if ($measure)
     <x-daisy-components::range-measure
         :max="$attributes->get('max', 100)"
