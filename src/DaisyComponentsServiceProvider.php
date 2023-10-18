@@ -30,6 +30,7 @@ use MisterSimon\DaisyComponents\Components\RadialProgress;
 use MisterSimon\DaisyComponents\Components\Radio;
 use MisterSimon\DaisyComponents\Components\Range;
 use MisterSimon\DaisyComponents\Components\RangeMeasure;
+use MisterSimon\DaisyComponents\Components\Rating;
 use MisterSimon\DaisyComponents\Components\Stat;
 use MisterSimon\DaisyComponents\Components\Stats;
 use MisterSimon\DaisyComponents\Components\Swap;
