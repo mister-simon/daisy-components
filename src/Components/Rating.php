@@ -34,6 +34,11 @@ class Rating extends Component
     ) {
         $classes = ['rating'];
 
+        // Half Sizes
+        if ($half) {
+            $classes[] = 'rating-half';
+        }
+
         // Sizes
         if ($lg) {
             $classes[] = 'rating-lg';
@@ -56,7 +61,7 @@ class Rating extends Component
     public function render(): View|Closure|string
     {
         $this->max ??= 5;
-        $this->ratingClasses ??= ['mask mask-star'];
+        $this->ratingClasses ??= ['mask mask-star-2'];
 
         return view('daisy-components::components.rating');
     }
