@@ -18,6 +18,7 @@ use MisterSimon\DaisyComponents\Components\Collapse;
 use MisterSimon\DaisyComponents\Components\Countdown;
 use MisterSimon\DaisyComponents\Components\CountdownItem;
 use MisterSimon\DaisyComponents\Components\Dropdown;
+use MisterSimon\DaisyComponents\Components\FileInput;
 use MisterSimon\DaisyComponents\Components\FormControl;
 use MisterSimon\DaisyComponents\Components\Input;
 use MisterSimon\DaisyComponents\Components\Kbd;
@@ -96,8 +97,10 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             FormControl::class,
             Label::class,
             Checkbox::class,
+            FileInput::class,
             Radio::class,
             Range::class,
+            Rating::class,
             RangeMeasure::class,
             Input::class,
             Textarea::class,
