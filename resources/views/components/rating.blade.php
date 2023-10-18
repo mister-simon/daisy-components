@@ -24,7 +24,7 @@
                     'mask-half-1' => $half && $isOdd,
                     'mask-half-2' => $half && !$isOdd,
                 ])
-                @checked((int) $checked === $i) />
+                @checked((float) $checked === (float) $i) />
         @endfor
     @else
         {{ $slot }}
