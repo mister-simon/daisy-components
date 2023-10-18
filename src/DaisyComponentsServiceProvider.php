@@ -31,6 +31,7 @@ use MisterSimon\DaisyComponents\Components\Radio;
 use MisterSimon\DaisyComponents\Components\Range;
 use MisterSimon\DaisyComponents\Components\RangeMeasure;
 use MisterSimon\DaisyComponents\Components\Rating;
+use MisterSimon\DaisyComponents\Components\Select;
 use MisterSimon\DaisyComponents\Components\Stat;
 use MisterSimon\DaisyComponents\Components\Stats;
 use MisterSimon\DaisyComponents\Components\Swap;
@@ -101,8 +102,9 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             FileInput::class,
             Radio::class,
             Range::class,
-            Rating::class,
             RangeMeasure::class,
+            Rating::class,
+            Select::class,
             Input::class,
             Textarea::class,
             Toggle::class,
