@@ -17,7 +17,6 @@ class Countdown extends Component
         $classes = ['countdown'];
 
         if ($count !== null) {
-
             $this->defaultAttributes['x-data'] = "{ count: {$count} }";
         }
 
