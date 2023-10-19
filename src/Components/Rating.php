@@ -31,6 +31,7 @@ class Rating extends Component
 
         // Which item is checked
         public $checked = null,
+        public $name = null,
     ) {
         $classes = ['rating'];
 
@@ -60,6 +61,7 @@ class Rating extends Component
      */
     public function render(): View|Closure|string
     {
+        $this->name ??= 'rating';
         $this->max ??= 5;
         $this->ratingClasses ??= ['mask mask-star-2'];
 

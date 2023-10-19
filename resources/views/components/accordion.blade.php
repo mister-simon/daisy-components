@@ -2,12 +2,12 @@
     @isset($radio)
         <input {{ $radio->attributes->class('peer')->merge([
             'type' => 'radio',
-            'name' => $group,
+            'name' => $name,
         ]) }} @checked($open) />
     @else
         <input
             type="radio"
-            name="{{ $group }}"
+            name="{{ $name }}"
             @checked($open)
             class="peer" />
     @endisset
