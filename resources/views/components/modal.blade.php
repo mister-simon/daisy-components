@@ -1,4 +1,8 @@
-{{ $slot }}
+@php($hasModalContent = isset($modal))
+@php($modal ??= new Illuminate\View\ComponentSlot($slot->toHtml()))
+@if ($hasModalContent)
+    {{ $slot }}
+@endif
 <dialog {{ $attributes->merge($defaultAttributes) }}>
     <div {{ $modal->attributes->class('modal-box') }}>
         {{ $modal }}
