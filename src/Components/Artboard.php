@@ -26,7 +26,7 @@ class Artboard extends Component
         }
 
         $classes[] = match ($size) {
-            default => 'phone-1',
+            default => '',
             1 => 'phone-1', // (320×568)
             2 => 'phone-2', // (375×667)
             3 => 'phone-3', // (414×736)
