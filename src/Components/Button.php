@@ -5,6 +5,7 @@ namespace MisterSimon\DaisyComponents\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use MisterSimon\DaisyComponents\Enums\Type;
 
 class Button extends Component
 {
@@ -55,16 +56,16 @@ class Button extends Component
 
         // Style
         if ($type) {
-            $this->neutral = $type === 'neutral';
-            $this->primary = $type === 'primary';
-            $this->secondary = $type === 'secondary';
-            $this->accent = $type === 'accent';
-            $this->info = $type === 'info';
-            $this->success = $type === 'success';
-            $this->warning = $type === 'warning';
-            $this->error = $type === 'error';
-            $this->ghost = $type === 'ghost';
-            $this->link = $type === 'link';
+            $this->neutral = $type === Type::NEUTRAL->value;
+            $this->primary = $type === Type::PRIMARY->value;
+            $this->secondary = $type === Type::SECONDARY->value;
+            $this->accent = $type === Type::ACCENT->value;
+            $this->info = $type === Type::INFO->value;
+            $this->success = $type === Type::SUCCESS->value;
+            $this->warning = $type === Type::WARNING->value;
+            $this->error = $type === Type::ERROR->value;
+            $this->ghost = $type === Type::GHOST->value;
+            $this->link = $type === Type::LINK->value;
         }
 
         if ($this->neutral) {

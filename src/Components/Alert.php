@@ -5,6 +5,7 @@ namespace MisterSimon\DaisyComponents\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use MisterSimon\DaisyComponents\Enums\Type;
 
 class Alert extends Component
 {
@@ -25,10 +26,10 @@ class Alert extends Component
         $classes = ['alert'];
 
         if ($type) {
-            $this->info = $type === 'info';
-            $this->success = $type === 'success';
-            $this->warning = $type === 'warning';
-            $this->error = $type === 'error';
+            $this->info = $type === Type::INFO->value;
+            $this->success = $type === Type::SUCCESS->value;
+            $this->warning = $type === Type::WARNING->value;
+            $this->error = $type === Type::ERROR->value;
         }
 
         if ($this->info) {

@@ -5,6 +5,7 @@ namespace MisterSimon\DaisyComponents\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use MisterSimon\DaisyComponents\Enums\Type;
 
 class Radio extends Component
 {
@@ -32,13 +33,13 @@ class Radio extends Component
 
         // Style
         if ($type) {
-            $this->primary = $type === 'primary';
-            $this->secondary = $type === 'secondary';
-            $this->accent = $type === 'accent';
-            $this->info = $type === 'info';
-            $this->success = $type === 'success';
-            $this->warning = $type === 'warning';
-            $this->error = $type === 'error';
+            $this->primary = $type === Type::PRIMARY->value;
+            $this->secondary = $type === Type::SECONDARY->value;
+            $this->accent = $type === Type::ACCENT->value;
+            $this->info = $type === Type::INFO->value;
+            $this->success = $type === Type::SUCCESS->value;
+            $this->warning = $type === Type::WARNING->value;
+            $this->error = $type === Type::ERROR->value;
         }
 
         if ($this->primary) {
