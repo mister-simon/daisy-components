@@ -10,11 +10,6 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
-        /*
-         * This class is a Package Service Provider
-         *
-         * More info: https://github.com/spatie/laravel-package-tools
-         */
         $package
             ->name('daisy-components')
             ->hasConfigFile()
@@ -76,6 +71,7 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             // Layout
             \MisterSimon\DaisyComponents\Components\Artboard::class,
             \MisterSimon\DaisyComponents\Components\Divider::class,
+            \MisterSimon\DaisyComponents\Components\Drawer::class,
 
             // Navigation
 
