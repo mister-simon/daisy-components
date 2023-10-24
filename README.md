@@ -68,7 +68,6 @@ class AppCard extends Card
         return parent::render();
     }
 }
-
 ```
 
 ### Preparing for Production - Discarding Unused Components
@@ -141,7 +140,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Simon Wheelwright](https://github.com/mister-simon)
+- [Simon W](https://github.com/mister-simon)
 - [All Contributors](../../contributors)
 
 ## License
