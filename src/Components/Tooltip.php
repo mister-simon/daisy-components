@@ -21,6 +21,8 @@ class Tooltip extends Component
         public $right = null,
 
         // Style
+        public $type = null,
+
         public $primary = null,
         public $secondary = null,
         public $accent = null,
@@ -46,19 +48,29 @@ class Tooltip extends Component
         }
 
         // Style
-        if ($primary) {
+        if ($type) {
+            $this->primary = $type === 'primary';
+            $this->secondary = $type === 'secondary';
+            $this->accent = $type === 'accent';
+            $this->info = $type === 'info';
+            $this->success = $type === 'success';
+            $this->warning = $type === 'warning';
+            $this->error = $type === 'error';
+        }
+
+        if ($this->primary) {
             $classes[] = 'tooltip-primary';
-        } elseif ($secondary) {
+        } elseif ($this->secondary) {
             $classes[] = 'tooltip-secondary';
-        } elseif ($accent) {
+        } elseif ($this->accent) {
             $classes[] = 'tooltip-accent';
-        } elseif ($info) {
+        } elseif ($this->info) {
             $classes[] = 'tooltip-info';
-        } elseif ($success) {
+        } elseif ($this->success) {
             $classes[] = 'tooltip-success';
-        } elseif ($warning) {
+        } elseif ($this->warning) {
             $classes[] = 'tooltip-warning';
-        } elseif ($error) {
+        } elseif ($this->error) {
             $classes[] = 'tooltip-error';
         }
 

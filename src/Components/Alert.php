@@ -11,23 +11,33 @@ class Alert extends Component
     public $defaultAttributes;
 
     public function __construct(
+        public $type = null,
+
         public $info = null,
         public $success = null,
         public $warning = null,
         public $error = null,
+
         public $dismissable = null,
         public $autoDismiss = null,
         public $dismissIntersect = false,
     ) {
         $classes = ['alert'];
 
-        if ($info) {
+        if ($type) {
+            $this->info = $type === 'info';
+            $this->success = $type === 'success';
+            $this->warning = $type === 'warning';
+            $this->error = $type === 'error';
+        }
+
+        if ($this->info) {
             $classes[] = 'alert-info';
-        } elseif ($success) {
+        } elseif ($this->success) {
             $classes[] = 'alert-success';
-        } elseif ($warning) {
+        } elseif ($this->warning) {
             $classes[] = 'alert-warning';
-        } elseif ($error) {
+        } elseif ($this->error) {
             $classes[] = 'alert-error';
         }
 

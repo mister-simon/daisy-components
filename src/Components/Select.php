@@ -18,6 +18,8 @@ class Select extends Component
         // Style
         public $bordered = null,
 
+        public $type = null,
+
         public $primary = null,
         public $secondary = null,
         public $accent = null,
@@ -40,21 +42,32 @@ class Select extends Component
             $classes[] = 'select-bordered';
         }
 
-        if ($primary) {
+        if ($type) {
+            $this->primary = $type === 'primary';
+            $this->secondary = $type === 'secondary';
+            $this->accent = $type === 'accent';
+            $this->info = $type === 'info';
+            $this->success = $type === 'success';
+            $this->warning = $type === 'warning';
+            $this->error = $type === 'error';
+            $this->ghost = $type === 'ghost';
+        }
+
+        if ($this->primary) {
             $classes[] = 'select-primary';
-        } elseif ($secondary) {
+        } elseif ($this->secondary) {
             $classes[] = 'select-secondary';
-        } elseif ($accent) {
+        } elseif ($this->accent) {
             $classes[] = 'select-accent';
-        } elseif ($ghost) {
+        } elseif ($this->ghost) {
             $classes[] = 'select-ghost';
-        } elseif ($info) {
+        } elseif ($this->info) {
             $classes[] = 'select-info';
-        } elseif ($success) {
+        } elseif ($this->success) {
             $classes[] = 'select-success';
-        } elseif ($warning) {
+        } elseif ($this->warning) {
             $classes[] = 'select-warning';
-        } elseif ($error) {
+        } elseif ($this->error) {
             $classes[] = 'select-error';
         }
 

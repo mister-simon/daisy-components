@@ -15,6 +15,8 @@ class Badge extends Component
         public $tag = 'span',
 
         // Style
+        public $type = null,
+
         public $neutral = null,
         public $primary = null,
         public $secondary = null,
@@ -37,23 +39,35 @@ class Badge extends Component
         $classes = ['badge'];
 
         // Style
-        if ($neutral) {
+        if ($type) {
+            $this->neutral = $type === 'neutral';
+            $this->primary = $type === 'primary';
+            $this->secondary = $type === 'secondary';
+            $this->accent = $type === 'accent';
+            $this->info = $type === 'info';
+            $this->success = $type === 'success';
+            $this->warning = $type === 'warning';
+            $this->error = $type === 'error';
+            $this->ghost = $type === 'ghost';
+        }
+
+        if ($this->neutral) {
             $classes[] = 'badge-neutral';
-        } elseif ($primary) {
+        } elseif ($this->primary) {
             $classes[] = 'badge-primary';
-        } elseif ($secondary) {
+        } elseif ($this->secondary) {
             $classes[] = 'badge-secondary';
-        } elseif ($accent) {
+        } elseif ($this->accent) {
             $classes[] = 'badge-accent';
-        } elseif ($info) {
+        } elseif ($this->info) {
             $classes[] = 'badge-info';
-        } elseif ($success) {
+        } elseif ($this->success) {
             $classes[] = 'badge-success';
-        } elseif ($warning) {
+        } elseif ($this->warning) {
             $classes[] = 'badge-warning';
-        } elseif ($error) {
+        } elseif ($this->error) {
             $classes[] = 'badge-error';
-        } elseif ($ghost) {
+        } elseif ($this->ghost) {
             $classes[] = 'badge-ghost';
         }
 

@@ -15,6 +15,8 @@ class Button extends Component
         public $tag = null,
 
         // Style
+        public $type = null,
+
         public $neutral = null,
         public $primary = null,
         public $secondary = null,
@@ -52,25 +54,38 @@ class Button extends Component
         $classes = ['btn'];
 
         // Style
-        if ($neutral) {
+        if ($type) {
+            $this->neutral = $type === 'neutral';
+            $this->primary = $type === 'primary';
+            $this->secondary = $type === 'secondary';
+            $this->accent = $type === 'accent';
+            $this->info = $type === 'info';
+            $this->success = $type === 'success';
+            $this->warning = $type === 'warning';
+            $this->error = $type === 'error';
+            $this->ghost = $type === 'ghost';
+            $this->link = $type === 'link';
+        }
+
+        if ($this->neutral) {
             $classes[] = 'btn-neutral';
-        } elseif ($primary) {
+        } elseif ($this->primary) {
             $classes[] = 'btn-primary';
-        } elseif ($secondary) {
+        } elseif ($this->secondary) {
             $classes[] = 'btn-secondary';
-        } elseif ($accent) {
+        } elseif ($this->accent) {
             $classes[] = 'btn-accent';
-        } elseif ($info) {
+        } elseif ($this->info) {
             $classes[] = 'btn-info';
-        } elseif ($success) {
+        } elseif ($this->success) {
             $classes[] = 'btn-success';
-        } elseif ($warning) {
+        } elseif ($this->warning) {
             $classes[] = 'btn-warning';
-        } elseif ($error) {
+        } elseif ($this->error) {
             $classes[] = 'btn-error';
-        } elseif ($ghost) {
+        } elseif ($this->ghost) {
             $classes[] = 'btn-ghost';
-        } elseif ($link) {
+        } elseif ($this->link) {
             $classes[] = 'btn-link';
         }
 

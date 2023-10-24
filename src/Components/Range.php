@@ -12,6 +12,8 @@ class Range extends Component
 
     public function __construct(
         // Style
+        public $type = null,
+
         public $primary = null,
         public $secondary = null,
         public $accent = null,
@@ -32,19 +34,29 @@ class Range extends Component
         $classes = ['range'];
 
         // Style
-        if ($primary) {
+        if ($type) {
+            $this->primary = $type === 'primary';
+            $this->secondary = $type === 'secondary';
+            $this->accent = $type === 'accent';
+            $this->info = $type === 'info';
+            $this->success = $type === 'success';
+            $this->warning = $type === 'warning';
+            $this->error = $type === 'error';
+        }
+
+        if ($this->primary) {
             $classes[] = 'range-primary';
-        } elseif ($secondary) {
+        } elseif ($this->secondary) {
             $classes[] = 'range-secondary';
-        } elseif ($accent) {
+        } elseif ($this->accent) {
             $classes[] = 'range-accent';
-        } elseif ($info) {
+        } elseif ($this->info) {
             $classes[] = 'range-info';
-        } elseif ($success) {
+        } elseif ($this->success) {
             $classes[] = 'range-success';
-        } elseif ($warning) {
+        } elseif ($this->warning) {
             $classes[] = 'range-warning';
-        } elseif ($error) {
+        } elseif ($this->error) {
             $classes[] = 'range-error';
         }
 

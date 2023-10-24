@@ -14,6 +14,9 @@ class Chat extends Component
 
     public function __construct(
         public $end = null,
+
+        public $type = null,
+
         public $primary = null,
         public $secondary = null,
         public $accent = null,
@@ -30,19 +33,29 @@ class Chat extends Component
 
         $this->bubbleClasses[] = 'chat-bubble';
 
-        if ($primary) {
+        if ($type) {
+            $this->primary = $type === 'primary';
+            $this->secondary = $type === 'secondary';
+            $this->accent = $type === 'accent';
+            $this->info = $type === 'info';
+            $this->success = $type === 'success';
+            $this->warning = $type === 'warning';
+            $this->error = $type === 'error';
+        }
+
+        if ($this->primary) {
             $this->bubbleClasses[] = 'chat-bubble-primary';
-        } elseif ($secondary) {
+        } elseif ($this->secondary) {
             $this->bubbleClasses[] = 'chat-bubble-secondary';
-        } elseif ($accent) {
+        } elseif ($this->accent) {
             $this->bubbleClasses[] = 'chat-bubble-accent';
-        } elseif ($info) {
+        } elseif ($this->info) {
             $this->bubbleClasses[] = 'chat-bubble-info';
-        } elseif ($success) {
+        } elseif ($this->success) {
             $this->bubbleClasses[] = 'chat-bubble-success';
-        } elseif ($warning) {
+        } elseif ($this->warning) {
             $this->bubbleClasses[] = 'chat-bubble-warning';
-        } elseif ($error) {
+        } elseif ($this->error) {
             $this->bubbleClasses[] = 'chat-bubble-error';
         }
 

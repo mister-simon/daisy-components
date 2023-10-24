@@ -12,6 +12,8 @@ class Radio extends Component
 
     public function __construct(
         // Style
+        public $type = null,
+
         public $primary = null,
         public $secondary = null,
         public $accent = null,
@@ -29,19 +31,29 @@ class Radio extends Component
         $classes = ['radio'];
 
         // Style
-        if ($primary) {
+        if ($type) {
+            $this->primary = $type === 'primary';
+            $this->secondary = $type === 'secondary';
+            $this->accent = $type === 'accent';
+            $this->info = $type === 'info';
+            $this->success = $type === 'success';
+            $this->warning = $type === 'warning';
+            $this->error = $type === 'error';
+        }
+
+        if ($this->primary) {
             $classes[] = 'radio-primary';
-        } elseif ($secondary) {
+        } elseif ($this->secondary) {
             $classes[] = 'radio-secondary';
-        } elseif ($accent) {
+        } elseif ($this->accent) {
             $classes[] = 'radio-accent';
-        } elseif ($info) {
+        } elseif ($this->info) {
             $classes[] = 'radio-info';
-        } elseif ($success) {
+        } elseif ($this->success) {
             $classes[] = 'radio-success';
-        } elseif ($warning) {
+        } elseif ($this->warning) {
             $classes[] = 'radio-warning';
-        } elseif ($error) {
+        } elseif ($this->error) {
             $classes[] = 'radio-error';
         }
 

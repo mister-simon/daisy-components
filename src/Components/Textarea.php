@@ -14,6 +14,8 @@ class Textarea extends Component
         // Style
         public $bordered = null,
 
+        public $type = null,
+
         public $primary = null,
         public $secondary = null,
         public $accent = null,
@@ -36,21 +38,32 @@ class Textarea extends Component
             $classes[] = 'textarea-bordered';
         }
 
-        if ($primary) {
+        if ($type) {
+            $this->primary = $type === 'primary';
+            $this->secondary = $type === 'secondary';
+            $this->accent = $type === 'accent';
+            $this->info = $type === 'info';
+            $this->success = $type === 'success';
+            $this->warning = $type === 'warning';
+            $this->error = $type === 'error';
+            $this->ghost = $type === 'ghost';
+        }
+
+        if ($this->primary) {
             $classes[] = 'textarea-primary';
-        } elseif ($secondary) {
+        } elseif ($this->secondary) {
             $classes[] = 'textarea-secondary';
-        } elseif ($accent) {
+        } elseif ($this->accent) {
             $classes[] = 'textarea-accent';
-        } elseif ($ghost) {
+        } elseif ($this->ghost) {
             $classes[] = 'textarea-ghost';
-        } elseif ($info) {
+        } elseif ($this->info) {
             $classes[] = 'textarea-info';
-        } elseif ($success) {
+        } elseif ($this->success) {
             $classes[] = 'textarea-success';
-        } elseif ($warning) {
+        } elseif ($this->warning) {
             $classes[] = 'textarea-warning';
-        } elseif ($error) {
+        } elseif ($this->error) {
             $classes[] = 'textarea-error';
         }
 

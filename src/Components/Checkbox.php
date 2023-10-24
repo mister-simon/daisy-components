@@ -12,6 +12,8 @@ class Checkbox extends Component
 
     public function __construct(
         // Style
+        public $type = null,
+
         public $primary = null,
         public $secondary = null,
         public $accent = null,
@@ -29,19 +31,29 @@ class Checkbox extends Component
         $classes = ['checkbox'];
 
         // Style
-        if ($primary) {
+        if ($type) {
+            $this->primary = $type === 'primary';
+            $this->secondary = $type === 'secondary';
+            $this->accent = $type === 'accent';
+            $this->info = $type === 'info';
+            $this->success = $type === 'success';
+            $this->warning = $type === 'warning';
+            $this->error = $type === 'error';
+        }
+
+        if ($this->primary) {
             $classes[] = 'checkbox-primary';
-        } elseif ($secondary) {
+        } elseif ($this->secondary) {
             $classes[] = 'checkbox-secondary';
-        } elseif ($accent) {
+        } elseif ($this->accent) {
             $classes[] = 'checkbox-accent';
-        } elseif ($info) {
+        } elseif ($this->info) {
             $classes[] = 'checkbox-info';
-        } elseif ($success) {
+        } elseif ($this->success) {
             $classes[] = 'checkbox-success';
-        } elseif ($warning) {
+        } elseif ($this->warning) {
             $classes[] = 'checkbox-warning';
-        } elseif ($error) {
+        } elseif ($this->error) {
             $classes[] = 'checkbox-error';
         }
 

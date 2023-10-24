@@ -14,6 +14,8 @@ class Input extends Component
         // Style
         public $bordered = null,
 
+        public $type = null,
+
         public $primary = null,
         public $secondary = null,
         public $accent = null,
@@ -36,21 +38,31 @@ class Input extends Component
             $classes[] = 'input-bordered';
         }
 
-        if ($primary) {
+        if ($type) {
+            $this->primary = $type === 'primary';
+            $this->secondary = $type === 'secondary';
+            $this->accent = $type === 'accent';
+            $this->info = $type === 'info';
+            $this->success = $type === 'success';
+            $this->warning = $type === 'warning';
+            $this->error = $type === 'error';
+            $this->ghost = $type === 'ghost';
+        }
+        if ($this->primary) {
             $classes[] = 'input-primary';
-        } elseif ($secondary) {
+        } elseif ($this->secondary) {
             $classes[] = 'input-secondary';
-        } elseif ($accent) {
+        } elseif ($this->accent) {
             $classes[] = 'input-accent';
-        } elseif ($ghost) {
+        } elseif ($this->ghost) {
             $classes[] = 'input-ghost';
-        } elseif ($info) {
+        } elseif ($this->info) {
             $classes[] = 'input-info';
-        } elseif ($success) {
+        } elseif ($this->success) {
             $classes[] = 'input-success';
-        } elseif ($warning) {
+        } elseif ($this->warning) {
             $classes[] = 'input-warning';
-        } elseif ($error) {
+        } elseif ($this->error) {
             $classes[] = 'input-error';
         }
 

@@ -14,6 +14,8 @@ class FileInput extends Component
         // Style
         public $bordered = null,
 
+        public $type = null,
+
         public $primary = null,
         public $secondary = null,
         public $accent = null,
@@ -36,21 +38,32 @@ class FileInput extends Component
             $classes[] = 'file-input-bordered';
         }
 
-        if ($primary) {
+        if ($type) {
+            $this->primary = $type === 'primary';
+            $this->secondary = $type === 'secondary';
+            $this->accent = $type === 'accent';
+            $this->info = $type === 'info';
+            $this->success = $type === 'success';
+            $this->warning = $type === 'warning';
+            $this->error = $type === 'error';
+            $this->ghost = $type === 'ghost';
+        }
+
+        if ($this->primary) {
             $classes[] = 'file-input-primary';
-        } elseif ($secondary) {
+        } elseif ($this->secondary) {
             $classes[] = 'file-input-secondary';
-        } elseif ($accent) {
+        } elseif ($this->accent) {
             $classes[] = 'file-input-accent';
-        } elseif ($ghost) {
+        } elseif ($this->ghost) {
             $classes[] = 'file-input-ghost';
-        } elseif ($info) {
+        } elseif ($this->info) {
             $classes[] = 'file-input-info';
-        } elseif ($success) {
+        } elseif ($this->success) {
             $classes[] = 'file-input-success';
-        } elseif ($warning) {
+        } elseif ($this->warning) {
             $classes[] = 'file-input-warning';
-        } elseif ($error) {
+        } elseif ($this->error) {
             $classes[] = 'file-input-error';
         }
 
