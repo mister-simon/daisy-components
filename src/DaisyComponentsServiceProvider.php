@@ -3,44 +3,6 @@
 namespace MisterSimon\DaisyComponents;
 
 use Illuminate\Support\Facades\Blade;
-use MisterSimon\DaisyComponents\Components\A;
-use MisterSimon\DaisyComponents\Components\Accordion;
-use MisterSimon\DaisyComponents\Components\Alert;
-use MisterSimon\DaisyComponents\Components\Artboard;
-use MisterSimon\DaisyComponents\Components\Avatar;
-use MisterSimon\DaisyComponents\Components\Badge;
-use MisterSimon\DaisyComponents\Components\Button;
-use MisterSimon\DaisyComponents\Components\Card;
-use MisterSimon\DaisyComponents\Components\Carousel;
-use MisterSimon\DaisyComponents\Components\CarouselItem;
-use MisterSimon\DaisyComponents\Components\Chat;
-use MisterSimon\DaisyComponents\Components\Checkbox;
-use MisterSimon\DaisyComponents\Components\Collapse;
-use MisterSimon\DaisyComponents\Components\Countdown;
-use MisterSimon\DaisyComponents\Components\CountdownItem;
-use MisterSimon\DaisyComponents\Components\Divider;
-use MisterSimon\DaisyComponents\Components\Dropdown;
-use MisterSimon\DaisyComponents\Components\FileInput;
-use MisterSimon\DaisyComponents\Components\FormControl;
-use MisterSimon\DaisyComponents\Components\Input;
-use MisterSimon\DaisyComponents\Components\Kbd;
-use MisterSimon\DaisyComponents\Components\Label;
-use MisterSimon\DaisyComponents\Components\Loading;
-use MisterSimon\DaisyComponents\Components\Modal;
-use MisterSimon\DaisyComponents\Components\Progress;
-use MisterSimon\DaisyComponents\Components\RadialProgress;
-use MisterSimon\DaisyComponents\Components\Radio;
-use MisterSimon\DaisyComponents\Components\Range;
-use MisterSimon\DaisyComponents\Components\RangeMeasure;
-use MisterSimon\DaisyComponents\Components\Rating;
-use MisterSimon\DaisyComponents\Components\Select;
-use MisterSimon\DaisyComponents\Components\Stat;
-use MisterSimon\DaisyComponents\Components\Stats;
-use MisterSimon\DaisyComponents\Components\Swap;
-use MisterSimon\DaisyComponents\Components\Table;
-use MisterSimon\DaisyComponents\Components\Textarea;
-use MisterSimon\DaisyComponents\Components\Toggle;
-use MisterSimon\DaisyComponents\Components\Tooltip;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -70,50 +32,50 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
 
         Blade::components([
             // Actions
-            A::class,
-            Button::class,
-            Dropdown::class,
-            Modal::class,
-            Swap::class,
+            \MisterSimon\DaisyComponents\Components\A::class,
+            \MisterSimon\DaisyComponents\Components\Button::class,
+            \MisterSimon\DaisyComponents\Components\Dropdown::class,
+            \MisterSimon\DaisyComponents\Components\Modal::class,
+            \MisterSimon\DaisyComponents\Components\Swap::class,
 
             // Data display
-            Accordion::class,
-            Alert::class,
-            Avatar::class,
-            Badge::class,
-            Card::class,
-            Carousel::class,
-            CarouselItem::class,
-            Chat::class,
-            Collapse::class,
-            Countdown::class,
-            CountdownItem::class,
-            Kbd::class,
-            Loading::class,
-            Progress::class,
-            RadialProgress::class,
-            Stats::class,
-            Stat::class,
-            Table::class,
-            Tooltip::class,
+            \MisterSimon\DaisyComponents\Components\Accordion::class,
+            \MisterSimon\DaisyComponents\Components\Alert::class,
+            \MisterSimon\DaisyComponents\Components\Avatar::class,
+            \MisterSimon\DaisyComponents\Components\Badge::class,
+            \MisterSimon\DaisyComponents\Components\Card::class,
+            \MisterSimon\DaisyComponents\Components\Carousel::class,
+            \MisterSimon\DaisyComponents\Components\CarouselItem::class,
+            \MisterSimon\DaisyComponents\Components\Chat::class,
+            \MisterSimon\DaisyComponents\Components\Collapse::class,
+            \MisterSimon\DaisyComponents\Components\Countdown::class,
+            \MisterSimon\DaisyComponents\Components\CountdownItem::class,
+            \MisterSimon\DaisyComponents\Components\Kbd::class,
+            \MisterSimon\DaisyComponents\Components\Loading::class,
+            \MisterSimon\DaisyComponents\Components\Progress::class,
+            \MisterSimon\DaisyComponents\Components\RadialProgress::class,
+            \MisterSimon\DaisyComponents\Components\Stats::class,
+            \MisterSimon\DaisyComponents\Components\Stat::class,
+            \MisterSimon\DaisyComponents\Components\Table::class,
+            \MisterSimon\DaisyComponents\Components\Tooltip::class,
 
             // Data input
-            FormControl::class,
-            Label::class,
-            Checkbox::class,
-            FileInput::class,
-            Radio::class,
-            Range::class,
-            RangeMeasure::class,
-            Rating::class,
-            Select::class,
-            Input::class,
-            Textarea::class,
-            Toggle::class,
+            \MisterSimon\DaisyComponents\Components\FormControl::class,
+            \MisterSimon\DaisyComponents\Components\Label::class,
+            \MisterSimon\DaisyComponents\Components\Checkbox::class,
+            \MisterSimon\DaisyComponents\Components\FileInput::class,
+            \MisterSimon\DaisyComponents\Components\Radio::class,
+            \MisterSimon\DaisyComponents\Components\Range::class,
+            \MisterSimon\DaisyComponents\Components\RangeMeasure::class,
+            \MisterSimon\DaisyComponents\Components\Rating::class,
+            \MisterSimon\DaisyComponents\Components\Select::class,
+            \MisterSimon\DaisyComponents\Components\Input::class,
+            \MisterSimon\DaisyComponents\Components\Textarea::class,
+            \MisterSimon\DaisyComponents\Components\Toggle::class,
 
             // Layout
-            Artboard::class,
-            Divider::class,
+            \MisterSimon\DaisyComponents\Components\Artboard::class,
+            \MisterSimon\DaisyComponents\Components\Divider::class,
 
             // Navigation
 
