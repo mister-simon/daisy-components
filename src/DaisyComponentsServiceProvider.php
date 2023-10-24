@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Blade;
 use MisterSimon\DaisyComponents\Components\A;
 use MisterSimon\DaisyComponents\Components\Accordion;
 use MisterSimon\DaisyComponents\Components\Alert;
+use MisterSimon\DaisyComponents\Components\Artboard;
 use MisterSimon\DaisyComponents\Components\Avatar;
 use MisterSimon\DaisyComponents\Components\Badge;
 use MisterSimon\DaisyComponents\Components\Button;
@@ -17,6 +18,7 @@ use MisterSimon\DaisyComponents\Components\Checkbox;
 use MisterSimon\DaisyComponents\Components\Collapse;
 use MisterSimon\DaisyComponents\Components\Countdown;
 use MisterSimon\DaisyComponents\Components\CountdownItem;
+use MisterSimon\DaisyComponents\Components\Divider;
 use MisterSimon\DaisyComponents\Components\Dropdown;
 use MisterSimon\DaisyComponents\Components\FileInput;
 use MisterSimon\DaisyComponents\Components\FormControl;
@@ -110,6 +112,8 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             Toggle::class,
 
             // Layout
+            Artboard::class,
+            Divider::class,
 
             // Navigation
 
