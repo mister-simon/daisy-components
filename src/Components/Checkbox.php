@@ -32,14 +32,14 @@ class Checkbox extends Component
         $classes = ['checkbox'];
 
         // Style
-        if ($type) {
-            $this->primary = $type === Type::PRIMARY->value;
-            $this->secondary = $type === Type::SECONDARY->value;
-            $this->accent = $type === Type::ACCENT->value;
-            $this->info = $type === Type::INFO->value;
-            $this->success = $type === Type::SUCCESS->value;
-            $this->warning = $type === Type::WARNING->value;
-            $this->error = $type === Type::ERROR->value;
+        if ($type && ($typeEnum = Type::tryFrom($type))) {
+            $this->primary = $typeEnum === Type::PRIMARY;
+            $this->secondary = $typeEnum === Type::SECONDARY;
+            $this->accent = $typeEnum === Type::ACCENT;
+            $this->info = $typeEnum === Type::INFO;
+            $this->success = $typeEnum === Type::SUCCESS;
+            $this->warning = $typeEnum === Type::WARNING;
+            $this->error = $typeEnum === Type::ERROR;
         }
 
         if ($this->primary) {

@@ -25,11 +25,11 @@ class Alert extends Component
     ) {
         $classes = ['alert'];
 
-        if ($type) {
-            $this->info = $type === Type::INFO->value;
-            $this->success = $type === Type::SUCCESS->value;
-            $this->warning = $type === Type::WARNING->value;
-            $this->error = $type === Type::ERROR->value;
+        if ($type && ($typeEnum = Type::tryFrom($type))) {
+            $this->info = $typeEnum === Type::INFO;
+            $this->success = $typeEnum === Type::SUCCESS;
+            $this->warning = $typeEnum === Type::WARNING;
+            $this->error = $typeEnum === Type::ERROR;
         }
 
         if ($this->info) {
