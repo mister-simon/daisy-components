@@ -12,6 +12,7 @@ class Drawer extends Component
 
     public function __construct(
         public $id = null,
+        public $drawerId = null,
         public $end = null,
         public $forceOpen = null,
     ) {
@@ -33,7 +34,8 @@ class Drawer extends Component
      */
     public function render(): View|Closure|string
     {
-        $id ??= 'drawer';
+        $this->id ??= 'drawer';
+        $this->drawerId ??= "drawer-{$this->id}";
 
         return view('daisy-components::components.drawer');
     }
