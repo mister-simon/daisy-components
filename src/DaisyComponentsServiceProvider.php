@@ -77,6 +77,7 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             \MisterSimon\DaisyComponents\Components\Hero::class,
             \MisterSimon\DaisyComponents\Components\Indicator::class,
             \MisterSimon\DaisyComponents\Components\Join::class,
+            \MisterSimon\DaisyComponents\Components\Mask::class,
 
             // Navigation
 
