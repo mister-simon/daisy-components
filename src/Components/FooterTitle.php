@@ -6,18 +6,14 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Footer extends Component
+class FooterTitle extends Component
 {
     public $defaultAttributes;
 
     public function __construct(
         public $center = null,
     ) {
-        $classes = ['footer'];
-
-        if ($center) {
-            $classes[] = 'footer-center';
-        }
+        $classes = ['footer-title'];
 
         $this->defaultAttributes = ['class' => implode(' ', $classes)];
     }
@@ -27,6 +23,6 @@ class Footer extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('daisy-components::components.footer');
+        return view('daisy-components::components.footer-title');
     }
 }

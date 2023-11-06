@@ -72,6 +72,9 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             \MisterSimon\DaisyComponents\Components\Artboard::class,
             \MisterSimon\DaisyComponents\Components\Divider::class,
             \MisterSimon\DaisyComponents\Components\Drawer::class,
+            \MisterSimon\DaisyComponents\Components\Footer::class,
+            \MisterSimon\DaisyComponents\Components\FooterTitle::class,
+            \MisterSimon\DaisyComponents\Components\Hero::class,
 
             // Navigation
 
