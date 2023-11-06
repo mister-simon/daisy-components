@@ -75,6 +75,8 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             \MisterSimon\DaisyComponents\Components\Footer::class,
             \MisterSimon\DaisyComponents\Components\FooterTitle::class,
             \MisterSimon\DaisyComponents\Components\Hero::class,
+            \MisterSimon\DaisyComponents\Components\Indicator::class,
+            \MisterSimon\DaisyComponents\Components\Join::class,
 
             // Navigation
 
