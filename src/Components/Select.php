@@ -19,7 +19,7 @@ class Select extends Component
         // Style
         public $bordered = null,
 
-        public $type = null,
+        public $color = null,
 
         public $primary = null,
         public $secondary = null,
@@ -43,7 +43,7 @@ class Select extends Component
             $classes[] = 'select-bordered';
         }
 
-        if ($type && ($typeEnum = Type::tryFrom($type))) {
+        if ($color && ($typeEnum = Type::tryFrom($color))) {
             $this->primary = $typeEnum === Type::PRIMARY;
             $this->secondary = $typeEnum === Type::SECONDARY;
             $this->accent = $typeEnum === Type::ACCENT;

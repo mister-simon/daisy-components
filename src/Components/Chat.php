@@ -16,7 +16,7 @@ class Chat extends Component
     public function __construct(
         public $end = null,
 
-        public $type = null,
+        public $color = null,
 
         public $primary = null,
         public $secondary = null,
@@ -34,7 +34,7 @@ class Chat extends Component
 
         $this->bubbleClasses[] = 'chat-bubble';
 
-        if ($type && ($typeEnum = Type::tryFrom($type))) {
+        if ($color && ($typeEnum = Type::tryFrom($color))) {
             $this->primary = $typeEnum === Type::PRIMARY;
             $this->secondary = $typeEnum === Type::SECONDARY;
             $this->accent = $typeEnum === Type::ACCENT;

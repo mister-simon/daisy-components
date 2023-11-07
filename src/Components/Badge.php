@@ -16,7 +16,7 @@ class Badge extends Component
         public $tag = 'span',
 
         // Style
-        public $type = null,
+        public $color = null,
 
         public $neutral = null,
         public $primary = null,
@@ -40,7 +40,7 @@ class Badge extends Component
         $classes = ['badge'];
 
         // Style
-        if ($type && ($typeEnum = Type::tryFrom($type))) {
+        if ($color && ($typeEnum = Type::tryFrom($color))) {
             $this->neutral = $typeEnum === Type::NEUTRAL;
             $this->primary = $typeEnum === Type::PRIMARY;
             $this->secondary = $typeEnum === Type::SECONDARY;

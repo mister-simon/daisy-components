@@ -16,7 +16,7 @@ class Button extends Component
         public $tag = null,
 
         // Style
-        public $type = null,
+        public $color = null,
 
         public $neutral = null,
         public $primary = null,
@@ -55,7 +55,7 @@ class Button extends Component
         $classes = ['btn'];
 
         // Style
-        if ($type && ($typeEnum = Type::tryFrom($type))) {
+        if ($color && ($typeEnum = Type::tryFrom($color))) {
             $this->neutral = $typeEnum === Type::NEUTRAL;
             $this->primary = $typeEnum === Type::PRIMARY;
             $this->secondary = $typeEnum === Type::SECONDARY;

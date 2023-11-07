@@ -14,9 +14,9 @@ class Indicator extends Component
 
     public function __construct(
         // Position
-        public $left = null,
+        public $start = null,
         public $center = null,
-        public $right = null,
+        public $end = null,
         public $top = null,
         public $middle = null,
         public $bottom = null,
@@ -25,11 +25,11 @@ class Indicator extends Component
         $this->indicatorClasses = ['indicator-item'];
 
         // Position
-        if ($left) {
+        if ($start) {
             $this->indicatorClasses[] = 'indicator-start';
         } elseif ($center) {
             $this->indicatorClasses[] = 'indicator-center';
-        } elseif ($right) {
+        } elseif ($end) {
             $this->indicatorClasses[] = 'indicator-end';
         }
 

@@ -12,7 +12,7 @@ class Alert extends Component
     public $defaultAttributes;
 
     public function __construct(
-        public $type = null,
+        public $color = null,
 
         public $info = null,
         public $success = null,
@@ -25,7 +25,7 @@ class Alert extends Component
     ) {
         $classes = ['alert'];
 
-        if ($type && ($typeEnum = Type::tryFrom($type))) {
+        if ($color && ($typeEnum = Type::tryFrom($color))) {
             $this->info = $typeEnum === Type::INFO;
             $this->success = $typeEnum === Type::SUCCESS;
             $this->warning = $typeEnum === Type::WARNING;

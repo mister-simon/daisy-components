@@ -13,7 +13,7 @@ class Checkbox extends Component
 
     public function __construct(
         // Style
-        public $type = null,
+        public $color = null,
 
         public $primary = null,
         public $secondary = null,
@@ -32,7 +32,7 @@ class Checkbox extends Component
         $classes = ['checkbox'];
 
         // Style
-        if ($type && ($typeEnum = Type::tryFrom($type))) {
+        if ($color && ($typeEnum = Type::tryFrom($color))) {
             $this->primary = $typeEnum === Type::PRIMARY;
             $this->secondary = $typeEnum === Type::SECONDARY;
             $this->accent = $typeEnum === Type::ACCENT;

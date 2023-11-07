@@ -15,7 +15,7 @@ class Input extends Component
         // Style
         public $bordered = null,
 
-        public $type = null,
+        public $color = null,
 
         public $primary = null,
         public $secondary = null,
@@ -39,7 +39,7 @@ class Input extends Component
             $classes[] = 'input-bordered';
         }
 
-        if ($type && ($typeEnum = Type::tryFrom($type))) {
+        if ($color && ($typeEnum = Type::tryFrom($color))) {
             $this->primary = $typeEnum === Type::PRIMARY;
             $this->secondary = $typeEnum === Type::SECONDARY;
             $this->accent = $typeEnum === Type::ACCENT;
@@ -79,7 +79,6 @@ class Input extends Component
         }
 
         $this->defaultAttributes = [
-            'type' => 'text',
             'class' => implode(' ', $classes),
         ];
     }
