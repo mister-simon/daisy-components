@@ -78,6 +78,8 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             \MisterSimon\DaisyComponents\Components\Indicator::class,
             \MisterSimon\DaisyComponents\Components\Join::class,
             \MisterSimon\DaisyComponents\Components\Mask::class,
+            \MisterSimon\DaisyComponents\Components\Stack::class,
+            \MisterSimon\DaisyComponents\Components\Toast::class,
 
             // Navigation
 
