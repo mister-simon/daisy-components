@@ -104,9 +104,11 @@ class Button extends Component
         if ($wide) {
             $classes[] = 'btn-wide';
         }
+
         if ($block) {
             $classes[] = 'btn-block';
         }
+
         if ($circle) {
             $classes[] = 'btn-circle';
         } elseif ($square) {
