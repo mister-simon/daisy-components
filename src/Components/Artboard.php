@@ -26,13 +26,13 @@ class Artboard extends Component
         }
 
         $classes[] = match ($size) {
-            default => '',
             1 => 'phone-1', // (320×568)
             2 => 'phone-2', // (375×667)
             3 => 'phone-3', // (414×736)
             4 => 'phone-4', // (375×812)
             5 => 'phone-5', // (414×896)
             6 => 'phone-6', // (320×1024)
+            default => '',
         };
 
         $this->defaultAttributes = ['class' => implode(' ', $classes)];
