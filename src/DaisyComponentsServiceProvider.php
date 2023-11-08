@@ -85,6 +85,7 @@ class DaisyComponentsServiceProvider extends PackageServiceProvider
             \MisterSimon\DaisyComponents\Components\Breadcrumbs::class,
             \MisterSimon\DaisyComponents\Components\BtmNav::class,
             \MisterSimon\DaisyComponents\Components\BtmNavLabel::class,
+            \MisterSimon\DaisyComponents\Components\Link::class,
 
             // Mockup
 
