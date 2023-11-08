@@ -24,6 +24,7 @@ class Progress extends Component
         public $error = null,
     ) {
         $classes = ['progress'];
+
         $classes[] = match ($this->colorEnum()) {
             Type::PRIMARY => 'progress-primary',
             Type::SECONDARY => 'progress-secondary',

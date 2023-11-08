@@ -25,21 +25,19 @@ class Indicator extends Component
         $this->indicatorClasses = ['indicator-item'];
 
         // Position
-        if ($start) {
-            $this->indicatorClasses[] = 'indicator-start';
-        } elseif ($center) {
-            $this->indicatorClasses[] = 'indicator-center';
-        } elseif ($end) {
-            $this->indicatorClasses[] = 'indicator-end';
-        }
+        $this->indicatorClasses[] = match (true) {
+            $start => 'indicator-start',
+            $center => 'indicator-center',
+            $end => 'indicator-end',
+            default => '',
+        };
 
-        if ($top) {
-            $this->indicatorClasses[] = 'indicator-top';
-        } elseif ($middle) {
-            $this->indicatorClasses[] = 'indicator-middle';
-        } elseif ($bottom) {
-            $this->indicatorClasses[] = 'indicator-bottom';
-        }
+        $this->indicatorClasses[] = match (true) {
+            $top => 'indicator-top',
+            $middle => 'indicator-middle',
+            $bottom => 'indicator-bottom',
+            default => '',
+        };
 
         $this->defaultAttributes = ['class' => implode(' ', $classes)];
     }

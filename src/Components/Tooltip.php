@@ -38,15 +38,13 @@ class Tooltip extends Component
         $classes = ['tooltip'];
 
         // Position
-        if ($top) {
-            $classes[] = 'tooltip-top';
-        } elseif ($bottom) {
-            $classes[] = 'tooltip-bottom';
-        } elseif ($left) {
-            $classes[] = 'tooltip-left';
-        } elseif ($right) {
-            $classes[] = 'tooltip-right';
-        }
+        $classes[] = match (true) {
+            $top => 'toast-top',
+            $bottom => 'toast-bottom',
+            $left => 'toast-left',
+            $right => 'toast-right',
+            default => '',
+        };
 
         // Style
         $classes[] = match ($this->colorEnum()) {

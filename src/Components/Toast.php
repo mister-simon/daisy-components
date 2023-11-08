@@ -22,21 +22,19 @@ class Toast extends Component
         $classes = ['toast'];
 
         // Position
-        if ($start) {
-            $classes[] = 'toast-start';
-        } elseif ($center) {
-            $classes[] = 'toast-center';
-        } elseif ($end) {
-            $classes[] = 'toast-end';
-        }
+        $classes[] = match (true) {
+            $start => 'toast-start',
+            $center => 'toast-center',
+            $end => 'toast-end',
+            default => '',
+        };
 
-        if ($top) {
-            $classes[] = 'toast-top';
-        } elseif ($middle) {
-            $classes[] = 'toast-middle';
-        } elseif ($bottom) {
-            $classes[] = 'toast-bottom';
-        }
+        $classes[] = match (true) {
+            $top => 'toast-top',
+            $middle => 'toast-middle',
+            $bottom => 'toast-bottom',
+            default => '',
+        };
 
         $this->defaultAttributes = ['class' => implode(' ', $classes)];
     }

@@ -29,19 +29,15 @@ class Loading extends Component
         $classes = ['loading'];
 
         // Style
-        if ($spinner) {
-            $classes[] = 'loading-spinner';
-        } elseif ($dots) {
-            $classes[] = 'loading-dots';
-        } elseif ($ring) {
-            $classes[] = 'loading-ring';
-        } elseif ($ball) {
-            $classes[] = 'loading-ball';
-        } elseif ($bars) {
-            $classes[] = 'loading-bars';
-        } elseif ($infinity) {
-            $classes[] = 'loading-infinity';
-        }
+        $classes[] = match (true) {
+            $this->spinner => 'loading-spinner',
+            $this->dots => 'loading-dots',
+            $this->ring => 'loading-ring',
+            $this->ball => 'loading-ball',
+            $this->bars => 'loading-bars',
+            $this->infinity => 'loading-infinity',
+            default => '',
+        };
 
         // Sizes
         $classes[] = match (true) {
