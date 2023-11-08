@@ -69,15 +69,13 @@ class Textarea extends Component
         }
 
         // Sizes
-        if ($lg) {
-            $classes[] = 'textarea-lg';
-        } elseif ($md) {
-            $classes[] = 'textarea-md';
-        } elseif ($sm) {
-            $classes[] = 'textarea-sm';
-        } elseif ($xs) {
-            $classes[] = 'textarea-xs';
-        }
+        $classes[] = match (true) {
+            $lg => 'textarea-lg',
+            $md => 'textarea-md',
+            $sm => 'textarea-sm',
+            $xs => 'textarea-xs',
+            default => '',
+        };
 
         $this->defaultAttributes = [
             'type' => 'text',

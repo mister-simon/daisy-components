@@ -59,15 +59,13 @@ class Radio extends Component
         }
 
         // Sizes
-        if ($lg) {
-            $classes[] = 'radio-lg';
-        } elseif ($md) {
-            $classes[] = 'radio-md';
-        } elseif ($sm) {
-            $classes[] = 'radio-sm';
-        } elseif ($xs) {
-            $classes[] = 'radio-xs';
-        }
+        $classes[] = match (true) {
+            $lg => 'radio-lg',
+            $md => 'radio-md',
+            $sm => 'radio-sm',
+            $xs => 'radio-xs',
+            default => '',
+        };
 
         $this->defaultAttributes = [
             'type' => 'radio',

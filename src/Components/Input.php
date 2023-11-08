@@ -68,15 +68,13 @@ class Input extends Component
         }
 
         // Sizes
-        if ($lg) {
-            $classes[] = 'input-lg';
-        } elseif ($md) {
-            $classes[] = 'input-md';
-        } elseif ($sm) {
-            $classes[] = 'input-sm';
-        } elseif ($xs) {
-            $classes[] = 'input-xs';
-        }
+        $classes[] = match (true) {
+            $lg => 'input-lg',
+            $md => 'input-md',
+            $sm => 'input-sm',
+            $xs => 'input-xs',
+            default => '',
+        };
 
         $this->defaultAttributes = [
             'class' => implode(' ', $classes),

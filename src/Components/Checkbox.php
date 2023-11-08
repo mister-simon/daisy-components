@@ -59,15 +59,13 @@ class Checkbox extends Component
         }
 
         // Sizes
-        if ($lg) {
-            $classes[] = 'checkbox-lg';
-        } elseif ($md) {
-            $classes[] = 'checkbox-md';
-        } elseif ($sm) {
-            $classes[] = 'checkbox-sm';
-        } elseif ($xs) {
-            $classes[] = 'checkbox-xs';
-        }
+        $classes[] = match (true) {
+            $lg => 'checkbox-lg',
+            $md => 'checkbox-md',
+            $sm => 'checkbox-sm',
+            $xs => 'checkbox-xs',
+            default => '',
+        };
 
         $this->defaultAttributes = [
             'type' => 'checkbox',

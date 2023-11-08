@@ -41,15 +41,13 @@ class Rating extends Component
         }
 
         // Sizes
-        if ($lg) {
-            $classes[] = 'rating-lg';
-        } elseif ($md) {
-            $classes[] = 'rating-md';
-        } elseif ($sm) {
-            $classes[] = 'rating-sm';
-        } elseif ($xs) {
-            $classes[] = 'rating-xs';
-        }
+        $classes[] = match (true) {
+            $lg => 'rating-lg',
+            $md => 'rating-md',
+            $sm => 'rating-sm',
+            $xs => 'rating-xs',
+            default => '',
+        };
 
         $this->defaultAttributes = [
             'class' => implode(' ', $classes),

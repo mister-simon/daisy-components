@@ -52,24 +52,17 @@ class Badge extends Component
             $this->ghost = $typeEnum === Type::GHOST;
         }
 
-        if ($this->neutral) {
-            $classes[] = 'badge-neutral';
-        } elseif ($this->primary) {
-            $classes[] = 'badge-primary';
-        } elseif ($this->secondary) {
-            $classes[] = 'badge-secondary';
-        } elseif ($this->accent) {
-            $classes[] = 'badge-accent';
-        } elseif ($this->info) {
-            $classes[] = 'badge-info';
-        } elseif ($this->success) {
-            $classes[] = 'badge-success';
-        } elseif ($this->warning) {
-            $classes[] = 'badge-warning';
-        } elseif ($this->error) {
-            $classes[] = 'badge-error';
-        } elseif ($this->ghost) {
-            $classes[] = 'badge-ghost';
+        $classes[] = match (true) {
+            $this->neutral => 'badge-neutral',
+            $this->primary => 'badge-primary',
+            $this->secondary => 'badge-secondary',
+            $this->accent => 'badge-accent',
+            $this->info => 'badge-info',
+            $this->success => 'badge-success',
+            $this->warning => 'badge-warning',
+            $this->error => 'badge-error',
+            $this->ghost => 'badge-ghost',
+            default => '',
         }
 
         // Outline
@@ -78,15 +71,13 @@ class Badge extends Component
         }
 
         // Sizes
-        if ($lg) {
-            $classes[] = 'badge-lg';
-        } elseif ($md) {
-            $classes[] = 'badge-md';
-        } elseif ($sm) {
-            $classes[] = 'badge-sm';
-        } elseif ($xs) {
-            $classes[] = 'badge-xs';
-        }
+        $classes[] = match (true) {
+            $lg => 'badge-lg',
+            $md => 'badge-md',
+            $sm => 'badge-sm',
+            $xs => 'badge-xs',
+            default => '',
+        };
 
         $this->defaultAttributes = ['class' => implode(' ', $classes)];
     }

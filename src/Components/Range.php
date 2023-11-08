@@ -62,15 +62,13 @@ class Range extends Component
         }
 
         // Sizes
-        if ($lg) {
-            $classes[] = 'range-lg';
-        } elseif ($md) {
-            $classes[] = 'range-md';
-        } elseif ($sm) {
-            $classes[] = 'range-sm';
-        } elseif ($xs) {
-            $classes[] = 'range-xs';
-        }
+        $classes[] = match (true) {
+            $lg => 'range-lg',
+            $md => 'range-md',
+            $sm => 'range-sm',
+            $xs => 'range-xs',
+            default => '',
+        };
 
         $this->defaultAttributes = [
             'type' => 'range',

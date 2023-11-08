@@ -32,7 +32,6 @@ class Toggle extends Component
         $classes = ['toggle'];
 
         // Style
-
         if ($color && ($typeEnum = Type::tryFrom($color))) {
             $this->primary = $typeEnum === Type::PRIMARY;
             $this->secondary = $typeEnum === Type::SECONDARY;
@@ -60,15 +59,13 @@ class Toggle extends Component
         }
 
         // Sizes
-        if ($lg) {
-            $classes[] = 'toggle-lg';
-        } elseif ($md) {
-            $classes[] = 'toggle-md';
-        } elseif ($sm) {
-            $classes[] = 'toggle-sm';
-        } elseif ($xs) {
-            $classes[] = 'toggle-xs';
-        }
+        $classes[] = match (true) {
+            $lg => 'toggle-lg',
+            $md => 'toggle-md',
+            $sm => 'toggle-sm',
+            $xs => 'toggle-xs',
+            default => '',
+        };
 
         $this->defaultAttributes = [
             'type' => 'checkbox',

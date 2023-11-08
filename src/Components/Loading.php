@@ -44,15 +44,13 @@ class Loading extends Component
         }
 
         // Sizes
-        if ($lg) {
-            $classes[] = 'loading-lg';
-        } elseif ($md) {
-            $classes[] = 'loading-md';
-        } elseif ($sm) {
-            $classes[] = 'loading-sm';
-        } elseif ($xs) {
-            $classes[] = 'loading-xs';
-        }
+        $classes[] = match (true) {
+            $lg => 'loading-lg',
+            $md => 'loading-md',
+            $sm => 'loading-sm',
+            $xs => 'loading-xs',
+            default => '',
+        };
 
         $this->defaultAttributes = ['class' => implode(' ', $classes)];
     }

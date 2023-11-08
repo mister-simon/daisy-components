@@ -20,15 +20,13 @@ class Kbd extends Component
         $classes = ['kbd'];
 
         // Sizes
-        if ($lg) {
-            $classes[] = 'kbd-lg';
-        } elseif ($md) {
-            $classes[] = 'kbd-md';
-        } elseif ($sm) {
-            $classes[] = 'kbd-sm';
-        } elseif ($xs) {
-            $classes[] = 'kbd-xs';
-        }
+        $classes[] = match (true) {
+            $lg => 'kbd-lg',
+            $md => 'kbd-md',
+            $sm => 'kbd-sm',
+            $xs => 'kbd-xs',
+            default => '',
+        };
 
         $this->defaultAttributes = ['class' => implode(' ', $classes)];
     }

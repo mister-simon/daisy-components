@@ -73,15 +73,13 @@ class Select extends Component
         }
 
         // Sizes
-        if ($lg) {
-            $classes[] = 'select-lg';
-        } elseif ($md) {
-            $classes[] = 'select-md';
-        } elseif ($sm) {
-            $classes[] = 'select-sm';
-        } elseif ($xs) {
-            $classes[] = 'select-xs';
-        }
+        $classes[] = match (true) {
+            $lg => 'select-lg',
+            $md => 'select-md',
+            $sm => 'select-sm',
+            $xs => 'select-xs',
+            default => '',
+        };
 
         $this->defaultAttributes = [
             'class' => implode(' ', $classes),

@@ -38,15 +38,13 @@ class Table extends Component
         }
 
         // Sizes
-        if ($lg) {
-            $classes[] = 'table-lg';
-        } elseif ($md) {
-            $classes[] = 'table-md';
-        } elseif ($sm) {
-            $classes[] = 'table-sm';
-        } elseif ($xs) {
-            $classes[] = 'table-xs';
-        }
+        $classes[] = match (true) {
+            $lg => 'table-lg',
+            $md => 'table-md',
+            $sm => 'table-sm',
+            $xs => 'table-xs',
+            default => '',
+        };
 
         $this->defaultAttributes = ['class' => implode(' ', $classes)];
     }

@@ -69,15 +69,13 @@ class FileInput extends Component
         }
 
         // Sizes
-        if ($lg) {
-            $classes[] = 'file-input-lg';
-        } elseif ($md) {
-            $classes[] = 'file-input-md';
-        } elseif ($sm) {
-            $classes[] = 'file-input-sm';
-        } elseif ($xs) {
-            $classes[] = 'file-input-xs';
-        }
+        $classes[] = match (true) {
+            $lg => 'file-input-lg',
+            $md => 'file-input-md',
+            $sm => 'file-input-sm',
+            $xs => 'file-input-xs',
+            default => '',
+        };
 
         $this->defaultAttributes = [
             'type' => 'file',

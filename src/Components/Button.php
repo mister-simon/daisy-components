@@ -113,15 +113,13 @@ class Button extends Component
         }
 
         // Sizes
-        if ($lg) {
-            $classes[] = 'btn-lg';
-        } elseif ($md) {
-            $classes[] = 'btn-md';
-        } elseif ($sm) {
-            $classes[] = 'btn-sm';
-        } elseif ($xs) {
-            $classes[] = 'btn-xs';
-        }
+        $classes[] = match (true) {
+            $lg => 'btn-lg',
+            $md => 'btn-md',
+            $sm => 'btn-sm',
+            $xs => 'btn-xs',
+            default => '',
+        };
 
         // Shapes / Layout
         if ($wide) {
