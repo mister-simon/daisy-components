@@ -40,30 +40,18 @@ class Badge extends Component
         $classes = ['badge'];
 
         // Style
-        if ($color && ($typeEnum = Type::tryFrom($color))) {
-            $this->neutral = $typeEnum === Type::NEUTRAL;
-            $this->primary = $typeEnum === Type::PRIMARY;
-            $this->secondary = $typeEnum === Type::SECONDARY;
-            $this->accent = $typeEnum === Type::ACCENT;
-            $this->info = $typeEnum === Type::INFO;
-            $this->success = $typeEnum === Type::SUCCESS;
-            $this->warning = $typeEnum === Type::WARNING;
-            $this->error = $typeEnum === Type::ERROR;
-            $this->ghost = $typeEnum === Type::GHOST;
-        }
-
-        $classes[] = match (true) {
-            $this->neutral => 'badge-neutral',
-            $this->primary => 'badge-primary',
-            $this->secondary => 'badge-secondary',
-            $this->accent => 'badge-accent',
-            $this->info => 'badge-info',
-            $this->success => 'badge-success',
-            $this->warning => 'badge-warning',
-            $this->error => 'badge-error',
-            $this->ghost => 'badge-ghost',
+        $classes[] = match ($this->colorEnum()) {
+            Type::NEUTRAL => 'badge-neutral',
+            Type::PRIMARY => 'badge-primary',
+            Type::SECONDARY => 'badge-secondary',
+            Type::ACCENT => 'badge-accent',
+            Type::INFO => 'badge-info',
+            Type::SUCCESS => 'badge-success',
+            Type::WARNING => 'badge-warning',
+            Type::ERROR => 'badge-error',
+            Type::GHOST => 'badge-ghost',
             default => '',
-        }
+        };
 
         // Outline
         if ($outline) {
@@ -80,6 +68,24 @@ class Badge extends Component
         };
 
         $this->defaultAttributes = ['class' => implode(' ', $classes)];
+    }
+
+    public function colorEnum()
+    {
+        return $this->color !== null
+            ? Type::tryFrom($this->color)
+            : match (true) {
+                $this->neutral => Type::NEUTRAL,
+                $this->primary => Type::PRIMARY,
+                $this->secondary => Type::SECONDARY,
+                $this->accent => Type::ACCENT,
+                $this->info => Type::INFO,
+                $this->success => Type::SUCCESS,
+                $this->warning => Type::WARNING,
+                $this->error => Type::ERROR,
+                $this->ghost => Type::GHOST,
+                default => null,
+            };
     }
 
     /**

@@ -32,31 +32,16 @@ class Radio extends Component
         $classes = ['radio'];
 
         // Style
-        if ($color && ($typeEnum = Type::tryFrom($color))) {
-            $this->primary = $typeEnum === Type::PRIMARY;
-            $this->secondary = $typeEnum === Type::SECONDARY;
-            $this->accent = $typeEnum === Type::ACCENT;
-            $this->info = $typeEnum === Type::INFO;
-            $this->success = $typeEnum === Type::SUCCESS;
-            $this->warning = $typeEnum === Type::WARNING;
-            $this->error = $typeEnum === Type::ERROR;
-        }
-
-        if ($this->primary) {
-            $classes[] = 'radio-primary';
-        } elseif ($this->secondary) {
-            $classes[] = 'radio-secondary';
-        } elseif ($this->accent) {
-            $classes[] = 'radio-accent';
-        } elseif ($this->info) {
-            $classes[] = 'radio-info';
-        } elseif ($this->success) {
-            $classes[] = 'radio-success';
-        } elseif ($this->warning) {
-            $classes[] = 'radio-warning';
-        } elseif ($this->error) {
-            $classes[] = 'radio-error';
-        }
+        $classes[] = match ($this->colorEnum()) {
+            Type::PRIMARY => 'radio-primary',
+            Type::SECONDARY => 'radio-secondary',
+            Type::ACCENT => 'radio-accent',
+            Type::INFO => 'radio-info',
+            Type::SUCCESS => 'radio-success',
+            Type::WARNING => 'radio-warning',
+            Type::ERROR => 'radio-error',
+            default => '',
+        };
 
         // Sizes
         $classes[] = match (true) {
@@ -71,6 +56,22 @@ class Radio extends Component
             'type' => 'radio',
             'class' => implode(' ', $classes),
         ];
+    }
+
+    public function colorEnum()
+    {
+        return $this->color !== null
+            ? Type::tryFrom($this->color)
+            : match (true) {
+                $this->primary => Type::PRIMARY,
+                $this->secondary => Type::SECONDARY,
+                $this->accent => Type::ACCENT,
+                $this->info => Type::INFO,
+                $this->success => Type::SUCCESS,
+                $this->warning => Type::WARNING,
+                $this->error => Type::ERROR,
+                default => null,
+            };
     }
 
     /**

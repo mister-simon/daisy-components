@@ -55,40 +55,19 @@ class Button extends Component
         $classes = ['btn'];
 
         // Style
-        if ($color && ($typeEnum = Type::tryFrom($color))) {
-            $this->neutral = $typeEnum === Type::NEUTRAL;
-            $this->primary = $typeEnum === Type::PRIMARY;
-            $this->secondary = $typeEnum === Type::SECONDARY;
-            $this->accent = $typeEnum === Type::ACCENT;
-            $this->info = $typeEnum === Type::INFO;
-            $this->success = $typeEnum === Type::SUCCESS;
-            $this->warning = $typeEnum === Type::WARNING;
-            $this->error = $typeEnum === Type::ERROR;
-            $this->ghost = $typeEnum === Type::GHOST;
-            $this->link = $typeEnum === Type::LINK;
-        }
-
-        if ($this->neutral) {
-            $classes[] = 'btn-neutral';
-        } elseif ($this->primary) {
-            $classes[] = 'btn-primary';
-        } elseif ($this->secondary) {
-            $classes[] = 'btn-secondary';
-        } elseif ($this->accent) {
-            $classes[] = 'btn-accent';
-        } elseif ($this->info) {
-            $classes[] = 'btn-info';
-        } elseif ($this->success) {
-            $classes[] = 'btn-success';
-        } elseif ($this->warning) {
-            $classes[] = 'btn-warning';
-        } elseif ($this->error) {
-            $classes[] = 'btn-error';
-        } elseif ($this->ghost) {
-            $classes[] = 'btn-ghost';
-        } elseif ($this->link) {
-            $classes[] = 'btn-link';
-        }
+        $classes[] = match ($this->colorEnum()) {
+            Type::NEUTRAL => 'btn-neutral',
+            Type::PRIMARY => 'btn-primary',
+            Type::SECONDARY => 'btn-secondary',
+            Type::ACCENT => 'btn-accent',
+            Type::INFO => 'btn-info',
+            Type::SUCCESS => 'btn-success',
+            Type::WARNING => 'btn-warning',
+            Type::ERROR => 'btn-error',
+            Type::GHOST => 'btn-ghost',
+            Type::LINK => 'btn-link',
+            default => '',
+        };
 
         // Outline
         if ($outline) {
@@ -139,6 +118,25 @@ class Button extends Component
         if ($disabled) {
             $this->defaultAttributes['disabled'] = 'disabled';
         }
+    }
+
+    public function colorEnum()
+    {
+        return $this->color !== null
+            ? Type::tryFrom($this->color)
+            : match (true) {
+                $this->neutral => Type::NEUTRAL,
+                $this->primary => Type::PRIMARY,
+                $this->secondary => Type::SECONDARY,
+                $this->accent => Type::ACCENT,
+                $this->info => Type::INFO,
+                $this->success => Type::SUCCESS,
+                $this->warning => Type::WARNING,
+                $this->error => Type::ERROR,
+                $this->ghost => Type::GHOST,
+                $this->link => Type::LINK,
+                default => null,
+            };
     }
 
     /**

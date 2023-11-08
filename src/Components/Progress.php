@@ -24,34 +24,34 @@ class Progress extends Component
         public $error = null,
     ) {
         $classes = ['progress'];
-
-        if ($color && ($typeEnum = Type::tryFrom($color))) {
-            $this->primary = $typeEnum === Type::PRIMARY;
-            $this->secondary = $typeEnum === Type::SECONDARY;
-            $this->accent = $typeEnum === Type::ACCENT;
-            $this->info = $typeEnum === Type::INFO;
-            $this->success = $typeEnum === Type::SUCCESS;
-            $this->warning = $typeEnum === Type::WARNING;
-            $this->error = $typeEnum === Type::ERROR;
-        }
-
-        if ($this->primary) {
-            $classes[] = 'progress-primary';
-        } elseif ($this->secondary) {
-            $classes[] = 'progress-secondary';
-        } elseif ($this->accent) {
-            $classes[] = 'progress-accent';
-        } elseif ($this->info) {
-            $classes[] = 'progress-info';
-        } elseif ($this->success) {
-            $classes[] = 'progress-success';
-        } elseif ($this->warning) {
-            $classes[] = 'progress-warning';
-        } elseif ($this->error) {
-            $classes[] = 'progress-error';
-        }
+        $classes[] = match ($this->colorEnum()) {
+            Type::PRIMARY => 'progress-primary',
+            Type::SECONDARY => 'progress-secondary',
+            Type::ACCENT => 'progress-accent',
+            Type::INFO => 'progress-info',
+            Type::SUCCESS => 'progress-success',
+            Type::WARNING => 'progress-warning',
+            Type::ERROR => 'progress-error',
+            default => '',
+        };
 
         $this->defaultAttributes = ['class' => implode(' ', $classes)];
+    }
+
+    public function colorEnum()
+    {
+        return $this->color !== null
+            ? Type::tryFrom($this->color)
+            : match (true) {
+                $this->primary => Type::PRIMARY,
+                $this->secondary => Type::SECONDARY,
+                $this->accent => Type::ACCENT,
+                $this->info => Type::INFO,
+                $this->success => Type::SUCCESS,
+                $this->warning => Type::WARNING,
+                $this->error => Type::ERROR,
+                default => null,
+            };
     }
 
     /**

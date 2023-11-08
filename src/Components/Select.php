@@ -42,35 +42,17 @@ class Select extends Component
         if ($bordered) {
             $classes[] = 'select-bordered';
         }
-
-        if ($color && ($typeEnum = Type::tryFrom($color))) {
-            $this->primary = $typeEnum === Type::PRIMARY;
-            $this->secondary = $typeEnum === Type::SECONDARY;
-            $this->accent = $typeEnum === Type::ACCENT;
-            $this->info = $typeEnum === Type::INFO;
-            $this->success = $typeEnum === Type::SUCCESS;
-            $this->warning = $typeEnum === Type::WARNING;
-            $this->error = $typeEnum === Type::ERROR;
-            $this->ghost = $typeEnum === Type::GHOST;
-        }
-
-        if ($this->primary) {
-            $classes[] = 'select-primary';
-        } elseif ($this->secondary) {
-            $classes[] = 'select-secondary';
-        } elseif ($this->accent) {
-            $classes[] = 'select-accent';
-        } elseif ($this->ghost) {
-            $classes[] = 'select-ghost';
-        } elseif ($this->info) {
-            $classes[] = 'select-info';
-        } elseif ($this->success) {
-            $classes[] = 'select-success';
-        } elseif ($this->warning) {
-            $classes[] = 'select-warning';
-        } elseif ($this->error) {
-            $classes[] = 'select-error';
-        }
+        $classes[] = match ($this->colorEnum()) {
+            Type::PRIMARY => 'select-primary',
+            Type::SECONDARY => 'select-secondary',
+            Type::ACCENT => 'select-accent',
+            Type::INFO => 'select-info',
+            Type::SUCCESS => 'select-success',
+            Type::WARNING => 'select-warning',
+            Type::ERROR => 'select-error',
+            Type::GHOST => 'select-ghost',
+            default => '',
+        };
 
         // Sizes
         $classes[] = match (true) {
@@ -84,6 +66,23 @@ class Select extends Component
         $this->defaultAttributes = [
             'class' => implode(' ', $classes),
         ];
+    }
+
+    public function colorEnum()
+    {
+        return $this->color !== null
+            ? Type::tryFrom($this->color)
+            : match (true) {
+                $this->primary => Type::PRIMARY,
+                $this->secondary => Type::SECONDARY,
+                $this->accent => Type::ACCENT,
+                $this->info => Type::INFO,
+                $this->success => Type::SUCCESS,
+                $this->warning => Type::WARNING,
+                $this->error => Type::ERROR,
+                $this->ghost => Type::GHOST,
+                default => null,
+            };
     }
 
     /**

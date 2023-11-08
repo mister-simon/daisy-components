@@ -25,22 +25,13 @@ class Alert extends Component
     ) {
         $classes = ['alert'];
 
-        if ($color && ($typeEnum = Type::tryFrom($color))) {
-            $this->info = $typeEnum === Type::INFO;
-            $this->success = $typeEnum === Type::SUCCESS;
-            $this->warning = $typeEnum === Type::WARNING;
-            $this->error = $typeEnum === Type::ERROR;
-        }
-
-        if ($this->info) {
-            $classes[] = 'alert-info';
-        } elseif ($this->success) {
-            $classes[] = 'alert-success';
-        } elseif ($this->warning) {
-            $classes[] = 'alert-warning';
-        } elseif ($this->error) {
-            $classes[] = 'alert-error';
-        }
+        $classes[] = match ($this->colorEnum()) {
+            Type::INFO => 'alert-info',
+            Type::SUCCESS => 'alert-success',
+            Type::WARNING => 'alert-warning',
+            Type::ERROR => 'alert-error',
+            default => '',
+        };
 
         $this->defaultAttributes = ['class' => implode(' ', $classes)];
 
@@ -75,6 +66,19 @@ class Alert extends Component
                 $this->defaultAttributes['x-init'] = 'timeout()';
             }
         }
+    }
+
+    public function colorEnum()
+    {
+        return $this->color !== null
+            ? Type::tryFrom($this->color)
+            : match (true) {
+                $this->info => Type::INFO,
+                $this->success => Type::SUCCESS,
+                $this->warning => Type::WARNING,
+                $this->error => Type::ERROR,
+                default => null,
+            };
     }
 
     /**

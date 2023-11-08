@@ -39,34 +39,17 @@ class FileInput extends Component
             $classes[] = 'file-input-bordered';
         }
 
-        if ($color && ($typeEnum = Type::tryFrom($color))) {
-            $this->primary = $typeEnum === Type::PRIMARY;
-            $this->secondary = $typeEnum === Type::SECONDARY;
-            $this->accent = $typeEnum === Type::ACCENT;
-            $this->info = $typeEnum === Type::INFO;
-            $this->success = $typeEnum === Type::SUCCESS;
-            $this->warning = $typeEnum === Type::WARNING;
-            $this->error = $typeEnum === Type::ERROR;
-            $this->ghost = $typeEnum === Type::GHOST;
-        }
-
-        if ($this->primary) {
-            $classes[] = 'file-input-primary';
-        } elseif ($this->secondary) {
-            $classes[] = 'file-input-secondary';
-        } elseif ($this->accent) {
-            $classes[] = 'file-input-accent';
-        } elseif ($this->ghost) {
-            $classes[] = 'file-input-ghost';
-        } elseif ($this->info) {
-            $classes[] = 'file-input-info';
-        } elseif ($this->success) {
-            $classes[] = 'file-input-success';
-        } elseif ($this->warning) {
-            $classes[] = 'file-input-warning';
-        } elseif ($this->error) {
-            $classes[] = 'file-input-error';
-        }
+        $classes[] = match ($this->colorEnum()) {
+            Type::PRIMARY => 'file-input-primary',
+            Type::SECONDARY => 'file-input-secondary',
+            Type::ACCENT => 'file-input-accent',
+            Type::INFO => 'file-input-info',
+            Type::SUCCESS => 'file-input-success',
+            Type::WARNING => 'file-input-warning',
+            Type::ERROR => 'file-input-error',
+            Type::GHOST => 'file-input-ghost',
+            default => '',
+        };
 
         // Sizes
         $classes[] = match (true) {
@@ -81,6 +64,23 @@ class FileInput extends Component
             'type' => 'file',
             'class' => implode(' ', $classes),
         ];
+    }
+
+    public function colorEnum()
+    {
+        return $this->color !== null
+            ? Type::tryFrom($this->color)
+            : match (true) {
+                $this->primary => Type::PRIMARY,
+                $this->secondary => Type::SECONDARY,
+                $this->accent => Type::ACCENT,
+                $this->info => Type::INFO,
+                $this->success => Type::SUCCESS,
+                $this->warning => Type::WARNING,
+                $this->error => Type::ERROR,
+                $this->ghost => Type::GHOST,
+                default => null,
+            };
     }
 
     /**

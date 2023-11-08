@@ -35,31 +35,16 @@ class Range extends Component
         $classes = ['range'];
 
         // Style
-        if ($color && ($typeEnum = Type::tryFrom($color))) {
-            $this->primary = $typeEnum === Type::PRIMARY;
-            $this->secondary = $typeEnum === Type::SECONDARY;
-            $this->accent = $typeEnum === Type::ACCENT;
-            $this->info = $typeEnum === Type::INFO;
-            $this->success = $typeEnum === Type::SUCCESS;
-            $this->warning = $typeEnum === Type::WARNING;
-            $this->error = $typeEnum === Type::ERROR;
-        }
-
-        if ($this->primary) {
-            $classes[] = 'range-primary';
-        } elseif ($this->secondary) {
-            $classes[] = 'range-secondary';
-        } elseif ($this->accent) {
-            $classes[] = 'range-accent';
-        } elseif ($this->info) {
-            $classes[] = 'range-info';
-        } elseif ($this->success) {
-            $classes[] = 'range-success';
-        } elseif ($this->warning) {
-            $classes[] = 'range-warning';
-        } elseif ($this->error) {
-            $classes[] = 'range-error';
-        }
+        $classes[] = match ($this->colorEnum()) {
+            Type::PRIMARY => 'range-primary',
+            Type::SECONDARY => 'range-secondary',
+            Type::ACCENT => 'range-accent',
+            Type::INFO => 'range-info',
+            Type::SUCCESS => 'range-success',
+            Type::WARNING => 'range-warning',
+            Type::ERROR => 'range-error',
+            default => '',
+        };
 
         // Sizes
         $classes[] = match (true) {
@@ -74,6 +59,22 @@ class Range extends Component
             'type' => 'range',
             'class' => implode(' ', $classes),
         ];
+    }
+
+    public function colorEnum()
+    {
+        return $this->color !== null
+            ? Type::tryFrom($this->color)
+            : match (true) {
+                $this->primary => Type::PRIMARY,
+                $this->secondary => Type::SECONDARY,
+                $this->accent => Type::ACCENT,
+                $this->info => Type::INFO,
+                $this->success => Type::SUCCESS,
+                $this->warning => Type::WARNING,
+                $this->error => Type::ERROR,
+                default => null,
+            };
     }
 
     /**

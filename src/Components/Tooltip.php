@@ -49,31 +49,16 @@ class Tooltip extends Component
         }
 
         // Style
-        if ($color && ($typeEnum = Type::tryFrom($color))) {
-            $this->primary = $typeEnum === Type::PRIMARY;
-            $this->secondary = $typeEnum === Type::SECONDARY;
-            $this->accent = $typeEnum === Type::ACCENT;
-            $this->info = $typeEnum === Type::INFO;
-            $this->success = $typeEnum === Type::SUCCESS;
-            $this->warning = $typeEnum === Type::WARNING;
-            $this->error = $typeEnum === Type::ERROR;
-        }
-
-        if ($this->primary) {
-            $classes[] = 'tooltip-primary';
-        } elseif ($this->secondary) {
-            $classes[] = 'tooltip-secondary';
-        } elseif ($this->accent) {
-            $classes[] = 'tooltip-accent';
-        } elseif ($this->info) {
-            $classes[] = 'tooltip-info';
-        } elseif ($this->success) {
-            $classes[] = 'tooltip-success';
-        } elseif ($this->warning) {
-            $classes[] = 'tooltip-warning';
-        } elseif ($this->error) {
-            $classes[] = 'tooltip-error';
-        }
+        $classes[] = match ($this->colorEnum()) {
+            Type::PRIMARY => 'tooltip-primary',
+            Type::SECONDARY => 'tooltip-secondary',
+            Type::ACCENT => 'tooltip-accent',
+            Type::INFO => 'tooltip-info',
+            Type::SUCCESS => 'tooltip-success',
+            Type::WARNING => 'tooltip-warning',
+            Type::ERROR => 'tooltip-error',
+            default => '',
+        };
 
         if ($forceOpen) {
             $classes[] = 'tooltip-open';
@@ -83,6 +68,22 @@ class Tooltip extends Component
             'data-tip' => $this->tip,
             'class' => implode(' ', $classes),
         ];
+    }
+
+    public function colorEnum()
+    {
+        return $this->color !== null
+            ? Type::tryFrom($this->color)
+            : match (true) {
+                $this->primary => Type::PRIMARY,
+                $this->secondary => Type::SECONDARY,
+                $this->accent => Type::ACCENT,
+                $this->info => Type::INFO,
+                $this->success => Type::SUCCESS,
+                $this->warning => Type::WARNING,
+                $this->error => Type::ERROR,
+                default => null,
+            };
     }
 
     /**

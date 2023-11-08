@@ -39,34 +39,17 @@ class Textarea extends Component
             $classes[] = 'textarea-bordered';
         }
 
-        if ($color && ($typeEnum = Type::tryFrom($color))) {
-            $this->primary = $typeEnum === Type::PRIMARY;
-            $this->secondary = $typeEnum === Type::SECONDARY;
-            $this->accent = $typeEnum === Type::ACCENT;
-            $this->info = $typeEnum === Type::INFO;
-            $this->success = $typeEnum === Type::SUCCESS;
-            $this->warning = $typeEnum === Type::WARNING;
-            $this->error = $typeEnum === Type::ERROR;
-            $this->ghost = $typeEnum === Type::GHOST;
-        }
-
-        if ($this->primary) {
-            $classes[] = 'textarea-primary';
-        } elseif ($this->secondary) {
-            $classes[] = 'textarea-secondary';
-        } elseif ($this->accent) {
-            $classes[] = 'textarea-accent';
-        } elseif ($this->ghost) {
-            $classes[] = 'textarea-ghost';
-        } elseif ($this->info) {
-            $classes[] = 'textarea-info';
-        } elseif ($this->success) {
-            $classes[] = 'textarea-success';
-        } elseif ($this->warning) {
-            $classes[] = 'textarea-warning';
-        } elseif ($this->error) {
-            $classes[] = 'textarea-error';
-        }
+        $classes[] = match ($this->colorEnum()) {
+            Type::PRIMARY => 'textarea-primary',
+            Type::SECONDARY => 'textarea-secondary',
+            Type::ACCENT => 'textarea-accent',
+            Type::INFO => 'textarea-info',
+            Type::SUCCESS => 'textarea-success',
+            Type::WARNING => 'textarea-warning',
+            Type::ERROR => 'textarea-error',
+            Type::GHOST => 'textarea-ghost',
+            default => '',
+        };
 
         // Sizes
         $classes[] = match (true) {
@@ -81,6 +64,23 @@ class Textarea extends Component
             'type' => 'text',
             'class' => implode(' ', $classes),
         ];
+    }
+
+    public function colorEnum()
+    {
+        return $this->color !== null
+            ? Type::tryFrom($this->color)
+            : match (true) {
+                $this->primary => Type::PRIMARY,
+                $this->secondary => Type::SECONDARY,
+                $this->accent => Type::ACCENT,
+                $this->info => Type::INFO,
+                $this->success => Type::SUCCESS,
+                $this->warning => Type::WARNING,
+                $this->error => Type::ERROR,
+                $this->ghost => Type::GHOST,
+                default => null,
+            };
     }
 
     /**

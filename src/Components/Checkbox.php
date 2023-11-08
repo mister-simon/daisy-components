@@ -32,31 +32,16 @@ class Checkbox extends Component
         $classes = ['checkbox'];
 
         // Style
-        if ($color && ($typeEnum = Type::tryFrom($color))) {
-            $this->primary = $typeEnum === Type::PRIMARY;
-            $this->secondary = $typeEnum === Type::SECONDARY;
-            $this->accent = $typeEnum === Type::ACCENT;
-            $this->info = $typeEnum === Type::INFO;
-            $this->success = $typeEnum === Type::SUCCESS;
-            $this->warning = $typeEnum === Type::WARNING;
-            $this->error = $typeEnum === Type::ERROR;
-        }
-
-        if ($this->primary) {
-            $classes[] = 'checkbox-primary';
-        } elseif ($this->secondary) {
-            $classes[] = 'checkbox-secondary';
-        } elseif ($this->accent) {
-            $classes[] = 'checkbox-accent';
-        } elseif ($this->info) {
-            $classes[] = 'checkbox-info';
-        } elseif ($this->success) {
-            $classes[] = 'checkbox-success';
-        } elseif ($this->warning) {
-            $classes[] = 'checkbox-warning';
-        } elseif ($this->error) {
-            $classes[] = 'checkbox-error';
-        }
+        $classes[] = match ($this->colorEnum()) {
+            Type::PRIMARY => 'checkbox-primary',
+            Type::SECONDARY => 'checkbox-secondary',
+            Type::ACCENT => 'checkbox-accent',
+            Type::INFO => 'checkbox-info',
+            Type::SUCCESS => 'checkbox-success',
+            Type::WARNING => 'checkbox-warning',
+            Type::ERROR => 'checkbox-error',
+            default => '',
+        };
 
         // Sizes
         $classes[] = match (true) {
@@ -71,6 +56,22 @@ class Checkbox extends Component
             'type' => 'checkbox',
             'class' => implode(' ', $classes),
         ];
+    }
+
+    public function colorEnum()
+    {
+        return $this->color !== null
+            ? Type::tryFrom($this->color)
+            : match (true) {
+                $this->primary => Type::PRIMARY,
+                $this->secondary => Type::SECONDARY,
+                $this->accent => Type::ACCENT,
+                $this->info => Type::INFO,
+                $this->success => Type::SUCCESS,
+                $this->warning => Type::WARNING,
+                $this->error => Type::ERROR,
+                default => null,
+            };
     }
 
     /**

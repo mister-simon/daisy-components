@@ -27,7 +27,6 @@ class Link extends Component
         public $warning = null,
         public $error = null,
         public $ghost = null,
-        public $link = null,
 
         // Show underline on hover
         public $hover = null,
@@ -35,40 +34,42 @@ class Link extends Component
         $classes = ['link'];
 
         // Style
-        if ($color && ($typeEnum = Type::tryFrom($color))) {
-            $this->neutral = $typeEnum === Type::NEUTRAL;
-            $this->primary = $typeEnum === Type::PRIMARY;
-            $this->secondary = $typeEnum === Type::SECONDARY;
-            $this->accent = $typeEnum === Type::ACCENT;
-            $this->info = $typeEnum === Type::INFO;
-            $this->success = $typeEnum === Type::SUCCESS;
-            $this->warning = $typeEnum === Type::WARNING;
-            $this->error = $typeEnum === Type::ERROR;
-        }
-
-        if ($this->neutral) {
-            $classes[] = 'link-neutral';
-        } elseif ($this->primary) {
-            $classes[] = 'link-primary';
-        } elseif ($this->secondary) {
-            $classes[] = 'link-secondary';
-        } elseif ($this->accent) {
-            $classes[] = 'link-accent';
-        } elseif ($this->info) {
-            $classes[] = 'link-info';
-        } elseif ($this->success) {
-            $classes[] = 'link-success';
-        } elseif ($this->warning) {
-            $classes[] = 'link-warning';
-        } elseif ($this->error) {
-            $classes[] = 'link-error';
-        }
+        $classes[] = match ($this->colorEnum()) {
+            Type::NEUTRAL => 'link-neutral',
+            Type::PRIMARY => 'link-primary',
+            Type::SECONDARY => 'link-secondary',
+            Type::ACCENT => 'link-accent',
+            Type::INFO => 'link-info',
+            Type::SUCCESS => 'link-success',
+            Type::WARNING => 'link-warning',
+            Type::ERROR => 'link-error',
+            Type::GHOST => 'link-ghost',
+            default => '',
+        };
 
         if ($this->hover) {
             $classes[] = 'link-hover';
         }
 
         $this->defaultAttributes = ['class' => implode(' ', $classes)];
+    }
+
+    public function colorEnum()
+    {
+        return $this->color !== null
+            ? Type::tryFrom($this->color)
+            : match (true) {
+                $this->neutral => Type::NEUTRAL,
+                $this->primary => Type::PRIMARY,
+                $this->secondary => Type::SECONDARY,
+                $this->accent => Type::ACCENT,
+                $this->info => Type::INFO,
+                $this->success => Type::SUCCESS,
+                $this->warning => Type::WARNING,
+                $this->error => Type::ERROR,
+                $this->ghost => Type::GHOST,
+                default => null,
+            };
     }
 
     /**
